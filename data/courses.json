@@ -1,0 +1,29 @@
+[
+    {
+        "Title": "Programming & Algorithm",
+        "Description": "Ushbu kursda dasturlash asoslari va algoritmlash qobilyati mustahkam o'rgatiladi.",
+        "Tag": "Boshlang'ich",
+        "Score": "2.5",
+        "CostInUzs": "3750000",
+        "DurationInMonth": 5,
+        "BannerId": "programming.png"
+    },
+    {
+        "Title": ".NET Bootcamp",
+        "Description": "Bu kursda siz .NET Full-stack dasturchi bo'lasiz. Kursda eng so'nggi texnologiyalar o'rgatiladi.",
+        "Tag": "Bootcamp",
+        "Score": "4.5",
+        "CostInUzs": "19800000",
+        "DurationInMonth": 9,
+        "BannerId": "netbootcamp.png"
+    },
+    {
+        "Title": ".NET MVC",
+        "Description": "MVC kursida siz .NET platformasida MVC dasturlar tuzishni o'rganasiz. ",
+        "Tag": "Veb",
+        "Score": "4.5",
+        "CostInUzs": "5000000",
+        "DurationInMonth": 5,
+        "BannerId": "netmvc.png"
+    }
+]
