@@ -1,0 +1,128 @@
+[
+    {
+        "Id": "1a84287a-70f4-4b3c-b7a0-afc5cfe3feaa",
+        "Title": "Programming Foundation",
+        "ShortDescription": "This is a 'zero-to-hero' started programming class which covers basics to complex algorithms.",
+        "Tags": "Beginner, C++, Algorithms, Problem-solving",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "de6108c2-1dda-4f89-a13a-c6363278bcee",
+        "Title": "Data Structures & Algorithms",
+        "ShortDescription": "A course which guides you to learn the commonly asked data structures and algorithms to rock your next algorithm interview.",
+        "Tags": "Algorithms, Data structures, C++, Problem-solving",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "7c8e7351-3318-4a85-83ca-1213a42b32b1",
+        "Title": "Frontcamp (ReactJS)",
+        "ShortDescription": "Complete guide for you to become an expert React JS Developer. Learn HTML, CSS, Bootstrap, JavaScript, ES6, React JS and jQuery.",
+        "Tags": "Frontend, Javascript, ReactJS",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "0e467e12-2646-4269-b735-1caf9e47d8b9",
+        "Title": "Backcamp (NodeJS)",
+        "ShortDescription": "This is a complete backend course in NodeJS stack. Master Express, MongoDB and many others. Build powerful RESTful APIs.",
+        "Tags": "Backend, Javascript, NodeJS",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "706b67ea-a76b-475c-afb4-a6bacb6990b4",
+        "Title": "Mobilecamp (Flutter)",
+        "ShortDescription": "Taking this amazing course, create cross-platform Flutter apps for any screen with beautiful UI.",
+        "Tags": "Mobile, Flutter, Android, iOS, Dart",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "d580ef0e-87d5-4dd0-b015-f082a2cb94ba",
+        "Title": "Dotnetcamp (Full-stack bootcamp)",
+        "ShortDescription": "Learn this powerful .NET framework to develop anything you want such as Web, Mobile, Game Development, IoT and more.",
+        "Tags": ".NET, C#, Web, Frontend, Backend, Mobile",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "13772517-4b73-4b8a-92e0-0e97cda8db3d",
+        "Title": "Datacamp (Data Science, AI, Machine Learning)",
+        "ShortDescription": "Data Collecting, Processing, Analysis, Visualization. Artificial Intelligence, Machine Learning and more. Let them decide for you!.",
+        "Tags": "Python, ML, AI, Statistics, Intermediate",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "a40551f3-b419-4ebc-828a-38a495ccff57",
+        "Title": "iOScamp (iOS with SwiftUI)",
+        "ShortDescription": "Learn developing iOS apps taking this exciting course. Discover the magic of SwiftUI.",
+        "Tags": "SwiftUI, iOS, Mobile",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "12a24e19-1a9c-4935-b029-905cdcc8fc9c",
+        "Title": "Animation (Motion Graphics)",
+        "ShortDescription": "This is a course for you to learn motion graphics from beginner to advanced level mastering Photoshop, Premiere Pro, After Effects and other tools.",
+        "Tags": "After Effects, Premiere Pro, Motion, Animation",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "d1d4547b-08ea-44a2-a35c-e603e1350146",
+        "Title": "3D Modeling (3ds Max/Blender)",
+        "ShortDescription": "Learn to create, edit, analyze 3d models for movies, animations, video games from professionals.",
+        "Tags": "3D Modeling, 3Ds Max, Blender",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "5284523f-9f32-41db-a844-79e3e14a9efb",
+        "Title": "UI/UX",
+        "ShortDescription": "Learn to create user-friendly and fascinating designs.",
+        "Tags": "UI, UX, Design, Adobe XD, Figma",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "5e3f2ed8-046e-4a56-814d-d600076b7adf",
+        "Title": "Scratch & Logic",
+        "ShortDescription": "Learn programming in a fun way. Develop computational thinking, creativity, and problem-solving skills!",
+        "Tags": "Beginner, Scratch, Problem-solving",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "b843e173-b999-46b1-b221-01adaef8fb61",
+        "Title": "Arduino & Robotechnics",
+        "ShortDescription": "Learn to code. Understand circuit flows. Boost creativity. Build your own robots!",
+        "Tags": "Arduino, Scratch, Robotechnics, IoT",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    },
+    {
+        "Id": "a95975e3-ba78-468b-aaad-18e5e259823e",
+        "Title": "Python Kids",
+        "ShortDescription": "This course enables the children to be growing up with love towards programming.",
+        "Tags": "Python, Beginner, Problem-solving",
+        "Rank": 5.0,
+        "CostInUzs": 3750000,
+        "DurationInMonth": 5
+    }
+]
