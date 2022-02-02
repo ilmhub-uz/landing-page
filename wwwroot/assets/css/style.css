@@ -16122,6 +16122,14 @@ textarea.form-control-lg {
   fill: #066ac9 !important;
 }
 
+.fill-aqua {
+  fill:aqua !important;
+}
+
+.fill-aquamarine {
+  fill:aquamarine !important;
+}
+
 .fill-white {
   fill: #fff !important;
 }
