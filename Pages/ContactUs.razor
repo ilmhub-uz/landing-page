@@ -25,17 +25,17 @@
 					<!-- Name -->
 					<div class="mb-4 bg-light-input">
 						<label for="yourName" class="form-label">Ismingiz *</label>
-						<input type="text" class="form-control form-control-lg" id="yourName" @bind="@Name">
+						<input type="text" class="form-control form-control-lg" id="yourName">
 					</div>
 					<!-- Email -->
 					<div class="mb-4 bg-light-input">
 						<label for="emailInput" class="form-label">Telefon raqamingiz *</label>
-						<input type="tel" class="form-control form-control-lg" id="emailInput" @bind="@Phone">
+						<input type="tel" class="form-control form-control-lg" id="emailInput" >
 					</div>
 					<!-- Message -->
 					<div class="mb-4 bg-light-input">
 						<label for="textareaBox" class="form-label">Habar *</label>
-						<textarea class="form-control" id="textareaBox" rows="4" @bind="@Message"></textarea>
+						<textarea class="form-control" id="textareaBox" rows="4" ></textarea>
 					</div>
 					<!-- Button -->
 					<div class="d-grid">
@@ -49,13 +49,5 @@
 </section>
 
 @code{
-	private static string Name = string.Empty;
-	private static string Phone = string.Empty;
-	private static string Message = string.Empty;
-	static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
-	static readonly string ApplicationName = "Ilmhub-uz";
-	static readonly string SpreedSheetId = "1lkyRO8xQrpeSa45DE3hhxtFaNo0IRhS4XGL5wbs8DEw";
-	static readonly string sheet = "Sheet1";
-	public static SheetsService service;
 	
 }
