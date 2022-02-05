@@ -1,6 +1,7 @@
 namespace landing.Components;
 
 using System.Net.Http.Json;
+using landing.Models;
 using Microsoft.AspNetCore.Components;
 
 public partial class PopularCourses : ComponentBase
@@ -38,22 +39,4 @@ public partial class PopularCourses : ComponentBase
         arr[0] = char.ToUpper(arr[0]);
         return new string(arr);
     }
-}
-
-
-public class Course
-{
-    public string Title { get; set; }
-    
-    public string Description { get; set; }
-    
-    public string Tag { get; set; }
-    
-    public Double Score { get; set; }
-    
-    public int CostInUzs { get; set; }
-    
-    public int DurationInMonth { get; set; }
-
-    public string BannerId { get; set; }
 }
