@@ -3,10 +3,15 @@
         "Title": "Programming & Algorithm",
         "Description": "Ushbu kursda dasturlash asoslari va algoritmlash qobilyati mustahkam o'rgatiladi.",
         "Tag": "Boshlang'ich",
-        "Score": "2.5",
+        "Score": "4.9",
         "CostInUzs": "3750000",
-        "DurationInMonth": 5,
-        "BannerId": "programming.png"
+        "CourseDuration": 5,
+        "ClassDuration": 4.5,
+        "InstructorName": "Wahid Abduhakimov",
+        "BannerId": "programming.png",
+        "Themes": ["C++"],
+        "CourseLevel": "Boshlang'ich",
+        "Deadline": "1 Mart 2022"
     },
     {
         "Title": ".NET Bootcamp",
@@ -14,8 +19,13 @@
         "Tag": "Bootcamp",
         "Score": "4.5",
         "CostInUzs": "19800000",
-        "DurationInMonth": 9,
-        "BannerId": "netbootcamp.png"
+        "CourseDuration": 9,
+        "ClassDuration": 4.5,
+        "InstructorName": "Wahid Abduhakimov",
+        "BannerId": "netbootcamp.png",
+        "Themes": ["C# introduction", "Basics", "OOP", "Web Api", "Asp .Net Mvc", "Blazor", "Xamarin"],
+        "CourseLevel": "Boshlang'ich",
+        "Deadline": "1 Mart 2022"
     },
     {
         "Title": ".NET MVC",
@@ -23,7 +33,12 @@
         "Tag": "Veb",
         "Score": "4.5",
         "CostInUzs": "5000000",
-        "DurationInMonth": 5,
-        "BannerId": "netmvc.png"
+        "CourseDuration": 5,
+        "ClassDuration": 4.5,
+        "InstructorName": "Wahid Abduhakimov",
+        "BannerId": "netmvc.png",
+        "Themes": ["C# introduction", "Basics", "OOP","Asp .Net Mvc", "Javascript", "Bootstrap", "Middleware"],
+        "CourseLevel": "Boshlang'ich",
+        "Deadline": "1 Mart 2022"
     }
 ]

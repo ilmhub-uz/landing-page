@@ -1,4 +1,4 @@
-namespace landing.Components;
+namespace landing.Components.MainPage;
 
 using System.Net.Http.Json;
 using landing.Models;

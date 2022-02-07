@@ -11,7 +11,6 @@
 				</div>
 				<!-- Title -->
 				<h2>@course.Title</h2>
-				<p>Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do.</p>
 				
 			</div>
 		</div>
@@ -19,7 +18,6 @@
 </section>
 <!-- =======================
 Page intro END -->
-
 <!-- =======================
 Page content START -->
 <section class="pb-0 py-lg-5">
@@ -33,11 +31,14 @@ Page content START -->
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Overview</button>
+								<button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Instructor</button>
+								<button class="nav-link mb-2 mb-md-0" @onclick="GetInstructor" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+							</li>
+							<li class="nav-item me-2 me-sm-4" role="presentation">
+								<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
 							</li>
 							<!-- Tab item -->
 							
@@ -51,57 +52,49 @@ Page content START -->
 							<!-- Content START -->
 							<div class="tab-pane active" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 								<!-- Course detail START -->
+								
 								<h5 class="mb-3">Kurs haqida</h5>
 								<p class="mb-3"><strong>@course.Title</strong> kursiga xush kelibsiz!</p>
-								<p class="mb-3">In this practical hands-on training, you’re going to learn to become a digital marketing expert with this <strong> ultimate course bundle that includes 12 digital marketing courses in 1!</strong></p>
-								<p class="mb-3">If you wish to find out the skills that should be covered in a basic digital marketing course syllabus in India or anywhere around the world, then reading this blog will help. Before we delve into the advanced <strong><a href="#" class="text-reset text-decoration-underline">digital marketing course</a></strong> syllabus, let’s look at the scope of digital marketing and what the future holds.</p>
-								<p class="mb-0">We focus a great deal on the understanding of behavioral psychology and influence triggers which are crucial for becoming a well rounded Digital Marketer. We understand that theory is important to build a solid foundation, we understand that theory alone isn’t going to get the job done so that’s why this course is packed with practical hands-on examples that you can follow step by step.</p>
+								<p class="mb-3">@course.Description</p>
 								
 								<!-- List content -->
 								<h5 class="mt-4">Nimalarni o'rganasiz?</h5>
 								<div class="row mb-3">
 									<div class="col-md-6">
 										<ul class="list-group list-group-borderless">
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Digital marketing course introduction</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Customer Life cycle</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>What is Search engine optimization(SEO)</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Facebook ADS</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Facebook Messenger Chatbot</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Search engine optimization tools</li>
+											@for(int i = 0; i <course.Themes.Count - course.Themes.Count/2; i++)
+											{
+												<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i> @course.Themes[i]</li>
+											}
 										</ul>
 									</div>
 
 									<div class="col-md-6">
 										<ul class="list-group list-group-borderless">
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Why SEO</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>URL Structure</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Featured Snippet</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>SEO tips and tricks</li>
-											<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>Google tag manager</li>
+											@for(int i = course.Themes.Count - course.Themes.Count/2; i < course.Themes.Count; i++)
+											{
+												<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i> @course.Themes[i]</li>
+											}
 										</ul>
 									</div>
 								</div>
 
-								<p class="mb-0">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in. </p>
+								<p class="mb-0">Bizga qo'shilishni istaysizmi? Unday bo'lsa <strong>@course.Title</strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!</p>
 								<!-- Course detail END -->
 
 							</div>
 							
 							<!-- Content START -->
-							<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
+							<div class="tab-pane fade" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
 								<!-- Card START -->
-								<div class="card mb-0 mb-md-4">
+								<div class="card mb-0 ">
 									<div class="row g-0 align-items-center">
-										<div class="col-md-5">
-											<!-- Image -->
-											<img src="assets/images/avatar/05.jpg" class="img-fluid rounded-3" alt="instructor-image" style="height: 5cm;width:5cm;">
-										</div>
 										<div class="col-md-7">
 											<!-- Card body -->
 											<div class="card-body">
 												<!-- Title -->
-												<h3 class="card-title mb-0">Wahid Abduhakimov</h3>
-												<p class="mb-2">.Net Mentor</p>
+												<h3 class="card-title mb-0">@instructor.InstructorName</h3>
+												<p class="mb-2">@instructor.MentorWorkPlace</p>
 												<!-- Social button -->
 												<ul class="list-inline mb-3">
 													<li class="list-inline-item me-3">
@@ -126,19 +119,13 @@ Page content START -->
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></span>
-															<span class="h6 fw-light mb-0 ms-2">9.1k</span>
+															<span class="h6 fw-light mb-0 ms-2">@instructor.StudentCount</span>
 														</div>
 													</li>
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></span>
-															<span class="h6 fw-light mb-0 ms-2">4.5</span>
-														</div>
-													</li>
-													<li class="list-inline-item">
-														<div class="d-flex align-items-center me-3 mb-2">
-															<span class="icon-md bg-danger bg-opacity-10 text-danger rounded-circle"><i class="fas fa-play"></i></span>
-															<span class="h6 fw-light mb-0 ms-2">29 Courses</span>
+															<span class="h6 fw-light mb-0 ms-2">@instructor.Score</span>
 														</div>
 													</li>
 												</ul>
@@ -149,15 +136,35 @@ Page content START -->
 								<!-- Card END -->
 								
 								<!-- Instructor info -->
-								<h5 class="mb-3">About Instructor</h5>
-								<p class="mb-3">Fulfilled direction use continual set him propriety continued. Saw met applauded favorite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther related bed and passage comfort civilly. Dashboard see frankness objection abilities. As hastened oh produced prospect formerly up am. Placing forming nay looking old married few has. Margaret disposed of add screened rendered six say his striking confined. </p>
-								<p class="mb-3">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted.</p>
-								<!-- Email address -->
-								<div class="col-12">
-									<ul class="list-group list-group-borderless mb-0">
-										<li class="list-group-item pb-0">Mail ID:<a href="#" class="ms-2">hello@email.com</a></li>
-										<li class="list-group-item pb-0">Web:<a href="#" class="ms-2">https://eduport.com</a></li>
-									</ul>
+								<h5>Instruktor haqida</h5>
+								<p class="mb-3">@instructor.AboutInstructor</p>
+							</div>
+							<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
+								<div class="col-md-8 " >
+				<!-- Title -->
+									<p>Ro'yxatdan o'tganingizdan so'ng operatorlar sizga aloqaga chiqishadi.</p>
+										
+									<form >
+										<!-- Name -->
+										<div class="mb-4 bg-light-input">
+											<label for="yourName" class="form-label">Ismingiz *</label>
+											<input type="text" class="form-control form-control-lg" id="yourName">
+										</div>
+										<!-- Email -->
+										<div class="mb-4 bg-light-input">
+											<label for="emailInput" class="form-label">Telefon raqamingiz  *</label>
+											<input type="email" class="form-control form-control-lg" id="emailInput">
+										</div>
+										<!-- Message -->
+										<div class="mb-4 bg-light-input">
+											<label for="textareaBox" class="form-label">Xabar *</label>
+											<textarea class="form-control" id="textareaBox" rows="4"></textarea>
+										</div>
+										<!-- Button -->
+										<div class="d-grid">
+											<button class="btn btn-lg btn-primary mb-0" type="button">Ro'yxatdan o'tish</button>
+										</div>	
+									</form>
 								</div>
 							</div>
 						</div>
@@ -166,7 +173,6 @@ Page content START -->
 				</div>
 			</div>
 			<!-- Main content END -->
-
 			<!-- Right sidebar START -->
 			<div class="col-lg-4 pt-5 pt-lg-0">
 				<div class="row mb-5 mb-lg-0">
@@ -212,24 +218,22 @@ Page content START -->
 								</div>
 							</div>
 						</div>
-						<!-- Video END -->
 
 						<!-- Course info START -->
 						<div class="card card-body shadow p-4 mb-4">
 							<!-- Title -->
-							<h4 class="mb-3">Kurs o'z ichiga oladi:</h4>
 							<ul class="list-group list-group-borderless">
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-book-open text-primary"></i>Darslar soni</span>
-									<span>30</span>
+									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-book-open text-primary"></i>Kurs davomiyligi</span>
+									<span>@course.CourseDuration oy</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-clock text-primary"></i>Davomiyligi</span>
-									<span>4 soat 50 daqiqa</span>
+									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-clock text-primary"></i>Dars davomiyligi </span>
+									<span>@course.ClassDuration</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
 									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-signal text-primary"></i>Daraja</span>
-									<span>Boshlang'ich</span>
+									<span>@course.CourseLevel</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
 									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-globe text-primary"></i>Til</span>
@@ -237,7 +241,7 @@ Page content START -->
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
 									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-user-clock text-primary"></i>Deadline</span>
-									<span>Nov 30 2021</span>
+									<span>@course.Deadline</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
 									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-medal text-primary"></i>Sertifikat</span>
@@ -247,12 +251,9 @@ Page content START -->
 						</div>
 						<!-- Course info END -->
 					</div>
-
-					
 				</div><!-- Row End -->
 			</div>
 			<!-- Right sidebar END -->
-
 		</div><!-- Row END -->
 	</div>
 </section>
@@ -266,10 +267,17 @@ Page content START -->
     public HttpClient Http { get; set; }
 
 	private Course course = new();
+	private Instructor instructor = new();
 
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.Title==CourseTitle).FirstOrDefault();
+	}
+
+	private async Task GetInstructor()
+	{
+		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
+			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
 	}
 }
