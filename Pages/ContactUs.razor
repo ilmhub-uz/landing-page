@@ -1,53 +1,42 @@
 @page "/contactus"
-@using Google.Apis.Auth.OAuth2
-@using Google.Apis.Sheets.v4
-@using Google.Apis.Sheets.v4.Data
 @using landing.Components.ContactDetails
-
-<ContactInfo/>
+@inject NavigationManager nav
+<ContactInfo />
 
 <section>
 	<div class="container">
 		<div class="row g-4 g-lg-0 align-items-center">
 			<div class="col-md-6 align-items-center text-center">
-				<!-- Image -->
-    			<img src="assets/images/element/contact.png" class="h-600px" alt="">
-				<SocialMediaButtons/>
+				<img src="assets/images/element/contact.png" class="h-600px" alt="">
+				<SocialMediaButtons />
 			</div>
 
-			<!-- Contact form START -->
 			<div class="col-md-6">
 				<!-- Title -->
 				<h2 class="mt-4 mt-md-0">Keling tanishamiz</h2>
-				<p>O'zingizni qiziqtirgan savol va takliflaringiz yuzasidan, yoki shunchaki bu forma ishlashini tekshirib ko'rish uchun bizga habar qoldiring 🙃</p>
-					
-				<form>
-					<!-- Name -->
+				<p>O'zingizni qiziqtirgan savol va takliflaringiz yuzasidan, yoki shunchaki bu forma ishlashini
+					tekshirib ko'rish uchun bizga habar qoldiring 🙃</p>
+
+				<form name="contact-form">
 					<div class="mb-4 bg-light-input">
-						<label for="yourName" class="form-label">Ismingiz *</label>
-						<input type="text" class="form-control form-control-lg" id="yourName">
+						<label for="name" class="form-label">Ismingiz *</label>
+						<input type="text" name="Name" class="form-control form-control-lg" id="name" required>
 					</div>
-					<!-- Email -->
 					<div class="mb-4 bg-light-input">
-						<label for="emailInput" class="form-label">Telefon raqamingiz *</label>
-						<input type="tel" class="form-control form-control-lg" id="emailInput" >
+						<label for="phone" class="form-label">Telefon raqamingiz *</label>
+						<input type="tel" name="Phone" class="form-control form-control-lg" id="phone" required>
 					</div>
-					<!-- Message -->
 					<div class="mb-4 bg-light-input">
-						<label for="textareaBox" class="form-label">Habar *</label>
-						<textarea class="form-control" id="textareaBox" rows="4" ></textarea>
+						<label for="message" class="form-label">Habar *</label>
+						<textarea class="form-control" name="Message" id="message" rows="4" required></textarea>
 					</div>
-					<!-- Button -->
 					<div class="d-grid">
-						<a class="btn btn-lg btn-primary mb-0" href="/" type="button">Habar qoldirish</a>
-					</div>	
+						<button class="btn btn-lg btn-primary mb-0" type="submit" onclick="Send_Data()">Habar
+							qoldirish</button>
+					</div>
+					<div class="mt-3" id="form_alerts"></div>
 				</form>
 			</div>
-			<!-- Contact form END -->
 		</div>
 	</div>
 </section>
-
-@code{
-	
-}
