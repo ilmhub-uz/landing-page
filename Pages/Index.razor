@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using landing.Components.Figures
+@using landing.Components.MainPage
 
 <section class="position-relative overflow-hidden pt-5 pt-lg-3">
 	
@@ -36,9 +37,6 @@
 				</ul>
 
 				<div class="d-sm-flex align-items-center justify-content-center justify-content-lg-start mb-0">
-					<!-- Button -->
-					@* <a href="#" class="btn btn-lg btn-danger-soft me-2 mb-sm-0 mb-4">Boshladik</a> *@
-					<!-- Video button -->
           			<a data-glightbox data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" class="me-2 mb-sm-0 mb-7 d-block">
 						<div class="btn btn-round btn-primary-shadow mb-0 me-3 align-middle d-inline-block"> <i class="fas fa-play"></i></div>
 						<div class="align-middle d-inline-block">
@@ -47,78 +45,13 @@
 					</a>
 				</div>
 			</div>
-			<!-- Left content END -->
 
-			<!-- Right content START -->
 			<RightContent/>
-			<!-- Right content END -->
 		</div>
 	</div>
-	<!-- Content END -->
 </section>
-<!-- =======================
-Main Banner END -->
 
-<!-- =======================
-Counter START -->
-<section class="py-0 py-xl-5">
-	<div class="container">
-		<div class="row g-4">
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="d-flex justify-content-center align-items-center p-4 bg-warning bg-opacity-15 rounded-3" style="height: 2.6cm;">
-					<span class="display-6 lh-1 text-warning mb-0"><i class="fas fa-tv" style="font-size: 2cm;"></i></span>
-					<div class="ms-4 h6 fw-normal">
-						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10"	data-purecounter-delay="200">20</h5>
-							<span class="mb-0 h5">+</span>
-						</div>
-						<p class="mb-0">Online&Offline darslar</p>
-					</div>
-				</div>
-			</div>
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="d-flex justify-content-center align-items-center p-4 bg-blue bg-opacity-10 rounded-3" style="height: 2.6cm;">
-					<span class="display-6 lh-1 text-blue mb-0"><i class="fas fa-user-tie" style="font-size: 2cm;"></i></span>
-					<div class="ms-4 h6 fw-normal">
-						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-delay="200">5</h5>
-							<span class="mb-0 h5">+</span>
-						</div>
-						<p class="mb-0">Ekspert ustozlar</p>
-					</div>
-				</div>
-			</div>
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-10 rounded-3" style="height: 2.6cm;">
-					<span class="display-6 lh-1 text-purple mb-0"><i class="fas fa-user-graduate" style="font-size: 2cm;"></i></span>
-					<div class="ms-4 h6 fw-normal">
-						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="60"	data-purecounter-delay="200">100</h5>
-							<span class="mb-0 h5">+</span>
-						</div>
-						<p class="mb-0">Muvaffaqiyatli talablar</p>
-					</div>
-				</div>
-			</div>
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="d-flex justify-content-center align-items-center p-4 bg-info bg-opacity-10 rounded-3" style="height: 2.6cm;">
-					<span class="display-6 lh-1 text-info mb-0"><i class="bi bi-patch-check-fill" style="font-size: 2cm;"></i></span>
-					<div class="ms-4 h6 fw-normal">
-						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="6" data-purecounter-delay="300">5</h5>
-							<span class="mb-0 h5">+</span>
-						</div>
-						<p class="mb-0">IT loyihalar</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<CardsInfo/>
 
 <PopularCourses/>
 
