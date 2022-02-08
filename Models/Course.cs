@@ -11,8 +11,12 @@ public class Course
     public float Score { get; set; }
     
     public int CostInUzs { get; set; }
+
+    public int OnlineCourseCost { get; set; }
     
     public float CourseDuration { get; set; }
+
+    public byte WeekDuration { get; set; }
 
     public float ClassDuration { get; set; }
     

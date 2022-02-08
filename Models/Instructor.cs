@@ -21,4 +21,8 @@ public class Instructor
     public string TwitterUrl { get; set; }
 
     public string StudentCount { get; set; }
+
+    public string BannerId { get; set; }
+    
+    
 }
