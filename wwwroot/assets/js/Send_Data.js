@@ -1,16 +1,16 @@
-function Send_Data() {
-    var form = document.forms['contact-form']
+function Send_Data(url, formtype){
+    var form = document.forms[formtype]
 
-    fetch('https://script.google.com/macros/s/AKfycbw1apW_s44TvfpFKHhu8B_X5LAPVCsYmhW25GSTacRFK0Wz97Rs1EjF5ohHtdfG_CmwVw/exec', { method: 'POST', body: new FormData(form)})
-    .then(response => $("#form_alerts").html("<div class='alert alert-success'> Message send successfully</div>"))
-    .catch(error => $("#form_alerts").html("<div class='alert alert-danger'> Message sending failed</div>"))
+    fetch(url, { method: 'POST', body: new FormData(form)})
+    .then(response => $("#form_alerts").html("<div class='alert alert-success'>Xabar muvaffaqiyatli yetkazildi</div>"))
+    .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Xabarni yetkazishda xatolik yuz berdi! Iltimos qaytadan urinib ko'ring.</div>"))
     form.addEventListener('submit', e => {
         e.preventDefault()
     })
 
     jQuery.ajax({ 
         success: function(response) {
-            document.forms['contact-form'].reset();
+            document.forms[formtype].reset();
         }
     });
 }
