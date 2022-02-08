@@ -6,7 +6,7 @@ public class Instructor
     
     public string AboutInstructor { get; set; }
     
-    public float Score { get; set; }
+    public byte Experience { get; set; }
         
     public string MentorWorkPlace { get; set; }
 
@@ -23,6 +23,4 @@ public class Instructor
     public string StudentCount { get; set; }
 
     public string BannerId { get; set; }
-    
-    
 }

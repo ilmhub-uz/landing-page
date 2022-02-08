@@ -65,7 +65,7 @@ Page content START -->
 										<ul class="list-group list-group-borderless">
 											@for(int i = 0; i <course.Themes.Count - course.Themes.Count/2; i++)
 											{
-												<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i> @course.Themes[i]</li>
+												<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>@course.Themes[i]</li>
 											}
 										</ul>
 									</div>
@@ -90,32 +90,32 @@ Page content START -->
 								<!-- Card START -->
 								<div class="card mb-0 ">
 									<div class="row g-0 align-items-center">
-										<div class="col-md-5">
+										<div class="col-md-5 mb-4">
 											<!-- Image -->
-											<img src="/assets/images/avatar/wahid.jpg" class="img-fluid rounded-3" alt="instructor-image" style="height:7cm;">
+											<img src="/assets/images/avatar/@instructor.BannerId" class="img-fluid rounded-3" alt="instructor-image" style="height:7cm; width:7cm;">
 										</div>
-										<div class="col-md-7">
+										<div class="col-md-7 mb-4">
 											<!-- Card body -->
-											<div class="card-body">
+											<div class="card-body ">
 												<!-- Title -->
-												<h3 class="card-title mb-0 mt-2">@instructor.InstructorName</h3>
+												<h3 class="card-title mb-0 ">@instructor.InstructorName</h3>
 												<p class="mb-2">@instructor.MentorWorkPlace</p>
 												<!-- Social button -->
-												<ul class="list-inline mb-3 mt-3">
+												<ul class="list-inline mb-3">
 													<li class="list-inline-item me-3">
-														<a href="#" class="fs-5 text-twitter"><i class="fab fa-twitter-square"></i></a>
+														<a href="@instructor.TwitterUrl" class="fs-5 text-twitter"><i class="fab fa-twitter"></i></a>
 													</li>
 													<li class="list-inline-item me-3">
-														<a href="#" class="fs-5 text-instagram"><i class="fab fa-instagram-square"></i></a>
+														<a href="@instructor.InstagramUrl" class="fs-5 text-instagram"><i class="fab fa-instagram"></i></a>
 													</li>
 													<li class="list-inline-item me-3">
-														<a href="#" class="fs-5 text-facebook"><i class="fab fa-facebook-square"></i></a>
+														<a href="@instructor.FacebookUrl" class="fs-5 text-facebook"><i class="fab fa-facebook"></i></a>
 													</li>
 													<li class="list-inline-item me-3">
-														<a href="#" class="fs-5 text-linkedin"><i class="fab fa-linkedin"></i></a>
+														<a href="@instructor.LinkedInUrl" class="fs-5 text-linkedin"><i class="fab fa-linkedin"></i></a>
 													</li>
 													<li class="list-inline-item">
-														<a href="#" class="fs-5 text-youtube"><i class="fab fa-youtube-square"></i></a>
+														<a href="@instructor.TelegramUrl" class="fs-5 text-telegram"><i class="fab fa-telegram"></i></a>
 													</li>
 												</ul>
 
@@ -128,25 +128,31 @@ Page content START -->
 														</div>
 													</li>
 													<li class="list-inline-item">
-														<div class="d-flex align-items-center mb-2">
+														<div class="d-flex align-items-center">
 															<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-play"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Score</strong> Kurslar </span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@coureCount</strong> Kurslar </span>
 														</div>
 													</li>
 													<li class="list-inline-item">
-														<div class="d-flex align-items-center  mb-2">
+														<div class="d-flex align-items-center  ">
 															<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Score+</strong> yillik tajriba </span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience+</strong> yillik tajriba </span>
 														</div>
 													</li>
-													<li class="list-inline-item">
+													@* <li class="list-inline-item">
 														<div class="d-flex align-items-center mb-2">
 															<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-trophy"></i></span>
 															<span class="h6 fw-light mb-0 ms-2">Muvaffaqiyatli startaplar</span>
 														</div>
-													</li>
+													</li> *@
 												</ul>
-												
+												<div class="d-flex align-items-center ">
+													<span class="icon-md text-dark mb-0 bg-light rounded-3"><i class="fas fa-graduation-cap"></i></span>
+													<div class="ms-3">
+														<h6 class="mb-0">Sejong Universiteti</h6>
+														<p class="mb-0 small">Axborot texnologiyalari</p>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -154,42 +160,38 @@ Page content START -->
 								<!-- Card END -->
 								
 								<!-- Instructor info -->
-								<h5 class="mt-5">Instruktor haqida</h5>
-								<p class="mb-3">@instructor.AboutInstructor</p>
+								@* <h5 class="">Instruktor haqida</h5>
+								<p class="mb-3">@instructor.AboutInstructor</p> *@
 							</div>
 							<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
-								<div class="co " >
-				<!-- Title -->
-									<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
-									
-									<form class="row g-3 mt-0" name="register-form">
-										<div class="col-md-6 bg-light-input">
-											<label for="yourName" class="form-label">Ismingiz *</label>
-											<input type="text" name="Name" class="form-control" id="yourName" >
-										</div>
-										<div class="col-md-6 bg-light-input">
-											<label for="mobileNumber" class="form-label">Telefon raqamingiz *</label>
-											<input type="text" name="Phone" class="form-control" id="mobileNumber" >
-										</div>
-										<div class="col-md-6 bg-light-input">
-											<label for="message" class="form-label">Xabar *</label>
-											<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
-										</div>
-										<input hidden name="Course" value="@course.Title">
-										<div class="col-md-6 bg-light-input">
-											<label for="CourseType" class="form-label">Kurs formati *</label>
-											<select class="form-select" name="Format" id="CourseType">
-												<option value="Offline">Offline</option>
-												<option value="Online">Online</option>
-											</select>
-										</div>
-										<div class="text-center">
-											<button class="btn btn-lg btn-success mt-3 mb-0" onclick="Send_Data('https://script.google.com/macros/s/AKfycbyF1bPzTlnQSSEaoxM7Ozn63PIXqq3VIuhLc2OUraScI5qKtlzRARRpV0JUhzv8exdIJg/exec', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
-										</div>	
-										<!-- State option -->
-										<div class="mt-3" id="form_alerts_register"></div>
-									</form>
-								</div>
+								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
+								<form class="row g-3 mt-0" name="register-form">
+									<div class="col-md-6 bg-light-input">
+										<label for="yourName" class="form-label">Ismingiz *</label>
+										<input type="text" name="Name" class="form-control" id="yourName" required>
+									</div>
+									<div class="col-md-6 bg-light-input">
+										<label for="mobileNumber" class="form-label">Telefon raqamingiz *</label>
+										<input type="text" name="Phone" class="form-control" id="mobileNumber" required >
+									</div>
+									<div class="col-md-6 bg-light-input">
+										<label for="message" class="form-label">Xabar *</label>
+										<textarea type="text" name="Message" rows="4" class="form-control" id="message" required></textarea>
+									</div>
+									<input hidden name="Course" value="@course.Title">
+									<div class="col-md-6 bg-light-input">
+										<label for="CourseType" class="form-label">Kurs formati *</label>
+										<select class="form-select" name="Format" id="CourseType" required>
+											<option value="Offline">Offline</option>
+											<option value="Online">Online</option>
+										</select>
+									</div>
+									<div class="text-center">
+										<button class="btn btn-lg btn-success mt-3 mb-0" onclick="Send_Data('https://script.google.com/macros/s/AKfycbyF1bPzTlnQSSEaoxM7Ozn63PIXqq3VIuhLc2OUraScI5qKtlzRARRpV0JUhzv8exdIJg/exec', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
+									</div>	
+									<!-- State option -->
+									<div class="mt-3" id="form_alerts_register"></div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -216,14 +218,14 @@ Page content START -->
 								}
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex align-items-center">
-										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-chalkboard-teacher"></i></span><span class="fw-bold">Offline:</span>
+										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-chalkboard-teacher"></i></span><span class="fw-bold">&nbspOffline:</span>
 										<h5 class="fw-bold mb-0 mx-4">@course.CostInUzs.ToString("C0", format)</h5>
 									</div>
 								</div>
 								<div class="d-flex justify-content-between align-items-center mt-1">
 									<div class="d-flex align-items-center">
-										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-globe"></i></span><span class="fw-bold">Online:</span>
-										<h5 class="fw-bold mb-0 mx-4">@course.OnlineCourseCost.ToString("C0", format)</h5><span class="badge bg-orange text-white mb-0">-10%</span>
+										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-globe"></i></span><span class="fw-bold">&nbspOnline:</span>
+										<h5 class="fw-bold mb-0 mx-4">@course.OnlineCourseCost.ToString("C0", format)</h5><span class="badge bg-orange text-white mb-0">-@Discount%</span>
 									</div>
 								</div>
 								
@@ -282,11 +284,15 @@ Page content START -->
     public HttpClient Http { get; set; }
 	private Course course = new(){Themes=new()};
 	private Instructor instructor = new();
-
+	private static byte Discount = 0;
+	private static int coureCount = 0;
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.Title==CourseTitle).FirstOrDefault();
+		Discount = (byte)((1 - (double)course.OnlineCourseCost/(double)course.CostInUzs)*100);
+		coureCount = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
+			.Where(c => c.InstructorName == course.InstructorName).Count<Course>();
 	}
 
 	private async Task GetInstructor()

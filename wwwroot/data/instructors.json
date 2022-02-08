@@ -1,14 +1,54 @@
 [
     {
         "InstructorName": "Wahid Abduhakimov",
-        "AboutInstructor": "Ushbu kursda dasturlash asoslari va algoritmlash qobilyati mustahkam o'rgatiladi.",
-        "Score": "5.0",
+        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "Experience": 5,
         "MentorWorkPlace": "Gluwa inc.",
+        "InstagramUrl": "https://instagram.com/wahid.abduhakimov?utm_medium=copy_link",
+        "FacebookUrl": "#",
+        "LinkedInUrl": "https://www.linkedin.com/in/wahidabduhakimov",
+        "TelegramUrl": "https://t.me/wahidsblog",
+        "TwitterUrl": "#",
+        "StudentCount": "750+",
+        "BannerId": "wahid.jpg"
+    },
+    {
+        "InstructorName": "Davron Abduhakimov",
+        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "Experience": 2,
+        "MentorWorkPlace": "Ilmhub It center.",
         "InstagramUrl": "#",
         "FacebookUrl": "#",
         "LinkedInUrl": "#",
         "TelegramUrl": "#",
         "TwitterUrl": "#",
-        "StudentCount": "750+"
+        "StudentCount": "150+",
+        "BannerId": "02.jpg"
+    },
+    {
+        "InstructorName": "Mukhriddin Dev",
+        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "Experience": 4,
+        "MentorWorkPlace": "Korean company",
+        "InstagramUrl": "#",
+        "FacebookUrl": "#",
+        "LinkedInUrl": "#",
+        "TelegramUrl": "#",
+        "TwitterUrl": "#",
+        "StudentCount": "250+",
+        "BannerId": "02.jpg"
+    },
+    {
+        "InstructorName": "Kilichbek Haydarov",
+        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "Experience": 5,
+        "MentorWorkPlace": "Machine Learning",
+        "InstagramUrl": "#",
+        "FacebookUrl": "#",
+        "LinkedInUrl": "#",
+        "TelegramUrl": "#",
+        "TwitterUrl": "#",
+        "StudentCount": "250+",
+        "BannerId": "04.jpg"
     }
 ]
