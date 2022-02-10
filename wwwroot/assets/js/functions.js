@@ -5,36 +5,24 @@
 * @version 1.1.0
 **/
 
-/* ===================
-Table Of Content
-======================
-01 PRELOADER
-02 MEGA MENU
-03 STICKY HEADER
-04 TINY SLIDER
-05 STICKY BAR
-06 TOOLTIP
-07 POPOVER
-08 BACK TO TOP
-10 GLIGHTBOX
-11 ISOTOPE
-12 CHOICES
-13 AOS ANIMATION
-14 DASHBOARD CHART
-15 EARNING CHART
-16 EARNING CHART 2
-17 TRAFFIC CHART
-18 ACTIVE STUDENT CHART
-19 ACTIVE STUDENT CHART 2
-20 REVIEW CHART
-21 QUILL EDITOR
-22 STEPPER
-23 VIDEO PLAYER
-24 DARK MODE
-25 PRICING
-26 STICKY ELEMENT
-27 OVERLAY SCROLLBARS
-====================== */
+function Send_Data(url, formtype){
+  if(jQuery("#name").val() != "" && jQuery("#phone").val() != "")
+  {
+    var form = document.forms[formtype]
+    fetch(url, { method: 'POST', body: new FormData(form)})
+    .then(response => $("#form_alerts").html("<div class='alert alert-success'>Xabar muvaffaqiyatli yetkazildi</div>"))
+    .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Xabarni yetkazishda xatolik yuz berdi! Iltimos qaytadan urinib ko'ring.</div>"))
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+    });
+
+    jQuery.ajax({ 
+        success: function(response) {
+            document.forms[formtype].reset();
+        }
+    });
+  }
+}
 "use strict";
 
 !function () {

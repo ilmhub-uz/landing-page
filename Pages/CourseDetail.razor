@@ -139,12 +139,6 @@ Page content START -->
 															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience+</strong> yillik tajriba </span>
 														</div>
 													</li>
-													@* <li class="list-inline-item">
-														<div class="d-flex align-items-center mb-2">
-															<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-trophy"></i></span>
-															<span class="h6 fw-light mb-0 ms-2">Muvaffaqiyatli startaplar</span>
-														</div>
-													</li> *@
 												</ul>
 												<div class="d-flex align-items-center ">
 													<span class="icon-md text-dark mb-0 bg-light rounded-3"><i class="fas fa-graduation-cap"></i></span>
@@ -166,21 +160,18 @@ Page content START -->
 							<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
 								<form class="row g-3 mt-0" name="register-form">
-									<div class="col-md-6 bg-light-input">
-										<label for="yourName" class="form-label">Ismingiz *</label>
-										<input type="text" name="Name" class="form-control" id="yourName" required>
+									<div class="col-md-6">
+										<img src="/assets/images/element/reg.png" style="background-color: blue;border-radius:7%;">
 									</div>
 									<div class="col-md-6 bg-light-input">
-										<label for="mobileNumber" class="form-label">Telefon raqamingiz *</label>
-										<input type="text" name="Phone" class="form-control" id="mobileNumber" required >
-									</div>
-									<div class="col-md-6 bg-light-input">
-										<label for="message" class="form-label">Xabar *</label>
-										<textarea type="text" name="Message" rows="4" class="form-control" id="message" required></textarea>
-									</div>
-									<input hidden name="Course" value="@course.Title">
-									<div class="col-md-6 bg-light-input">
-										<label for="CourseType" class="form-label">Kurs formati *</label>
+										<label for="name" class="form-label">Ismingiz *</label>
+										<input type="text" name="Name" class="form-control" id="name" required>
+										<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label>
+										<input type="text" name="Phone" class="form-control" id="phone" required >
+										<label for="message" class="form-label mt-2">Xabar</label>
+										<input hidden name="Course" value="@course.Title" id="course">
+										<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
+										<label for="CourseType" class="form-label mt-2">Kurs formati *</label>
 										<select class="form-select" name="Format" id="CourseType" required>
 											<option value="Offline">Offline</option>
 											<option value="Online">Online</option>
