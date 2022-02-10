@@ -5,7 +5,20 @@
     <NotFound>
         <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <section class="pt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 text-center">
+                            <img src="assets/images/element/404.png" style="width: 13cm;">
+                        </div>
+                        <div class="col-md-5 mt-6">
+                            <h1 class="text-danger mb-0 mt-3">Xatolik yuz berdi!</h1>
+                            <p class="mb-4 mx-2">Xatolik yuz berdi yoki bunday sahifa mavjud emas</p>
+                            <a href="/" class="btn btn-primary mb-0 mx-6">Bosh sahifaga qaytish</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </LayoutView>
     </NotFound>
 </Router>
