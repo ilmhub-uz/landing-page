@@ -130,7 +130,7 @@ Page content START -->
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-play"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@coureCount</strong> Kurslar </span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@courseCount</strong> Kurslar </span>
 														</div>
 													</li>
 													<li class="list-inline-item">
@@ -178,7 +178,7 @@ Page content START -->
 										</select>
 									</div>
 									<div class="text-center">
-										<button class="btn btn-lg btn-success mt-3 mb-0" onclick="Send_Data('https://script.google.com/macros/s/AKfycbyF1bPzTlnQSSEaoxM7Ozn63PIXqq3VIuhLc2OUraScI5qKtlzRARRpV0JUhzv8exdIJg/exec', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
+										<button class="btn btn-lg btn-success mt-3 mb-0" onclick="Send_Data('@connection.RegisterConnection', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
 									</div>	
 									<!-- State option -->
 									<div class="mt-3" id="form_alerts"></div>
@@ -204,8 +204,8 @@ Page content START -->
 							<div class="card-body px-3">
 								<!-- Info -->
 								@{
-											var format = CultureInfo.CreateSpecificCulture("uz-Latn-Uz").NumberFormat;
-											format.CurrencyPositivePattern = 3;
+									var format = CultureInfo.CreateSpecificCulture("uz-Latn-Uz").NumberFormat;
+									format.CurrencyPositivePattern = 3;
 								}
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex align-items-center">
@@ -276,14 +276,16 @@ Page content START -->
 	private Course course = new(){Themes=new()};
 	private Instructor instructor = new();
 	private static byte Discount = 0;
-	private static int coureCount = 0;
+	private static int courseCount = 0;
+	private Connection connection {get; set;}
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.Title==CourseTitle).FirstOrDefault();
 		Discount = (byte)((1 - (double)course.OnlineCourseCost/(double)course.CostInUzs)*100);
-		coureCount = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
+		courseCount = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.InstructorName == course.InstructorName).Count<Course>();
+		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
 	}
 
 	private async Task GetInstructor()
