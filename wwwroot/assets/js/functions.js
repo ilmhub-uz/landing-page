@@ -19,7 +19,7 @@ function Send_Data(url, formtype){
     console.log(jQuery("#form_alerts").val());
     jQuery.ajax({ 
         success: function(response) {
-            document.forms[formtype].reset();
+            jQuery("#"+formtype)[0].reset();
         }
     });
   }
