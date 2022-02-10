@@ -1,7 +1,6 @@
 @page "/contactus"
 @using landing.Components.ContactDetails
 @inject HttpClient Http
-<ContactInfo />
 
 <section>
 	<div class="container">
@@ -17,7 +16,7 @@
 				<p>O'zingizni qiziqtirgan savol va takliflaringiz yuzasidan, yoki shunchaki bu forma ishlashini
 					tekshirib ko'rish uchun bizga habar qoldiring 🙃</p>
 
-				<form name="contact-form">
+				<form name="contact-form" id="contact-form">
 					<div class="mb-4 bg-light-input">
 						<label for="name" class="form-label">Ismingiz *</label>
 						<input type="text" name="Name" class="form-control form-control-lg" id="name" required>
@@ -40,6 +39,8 @@
 		</div>
 	</div>
 </section>
+<ContactInfo />
+
 @code{
 	private Connection connection {get; set;}
 	protected override async Task OnInitializedAsync()
