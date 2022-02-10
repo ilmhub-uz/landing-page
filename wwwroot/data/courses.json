@@ -42,7 +42,7 @@
         "WeekDuration": 3,
         "ClassDuration": 2,
         "InstructorName": "Wahid Abduhakimov",
-        "BannerId": "backend.png",
+        "BannerId": "backenddotnet.png",
         "Themes": ["C# asoslari", "OOP", "Asp.Net", " Web, WebApi", "Rest tamoyili", "Api orqali ma'lumot bilan ishlash", "Dizayn tamoyillari(SOLID, KISS, YAGNI)", "Ma'lumotlar bilan ishlash", "Entity Framework Core", " Authentication va Authorization","Api kalitlari bilan ishlash", "IdentityServer4",  "Mvc asoslari", "HttpClient"],
         "CourseLevel": "O'rta",
         "Deadline": "1 Mart 2022"
@@ -58,7 +58,7 @@
         "WeekDuration": 3,
         "ClassDuration": 2,
         "InstructorName": "Kilichbek Haydarov",
-        "BannerId": "AI.png",
+        "BannerId": "AIB.png",
         "Themes": ["Python asoslari", "Chiziqli algebra", "Matritsalar", "Differensial hisoblash", "Machine learningga kirish", "Perseptronlar", "Xususiyatlar", "Marjani maksimallashtirish", "Regressiya", "Neyron tarmoqlar", "Konvolyutsion neyron tarmoqlari", "Markov qaror jarayonlari",  "Reinforcement learning", "Rekurrent neyron tarmoqlari", "Tavsiyalar tizimi", "Decision Trees va Nearest Neighbors"],
         "CourseLevel": "Yuqori",
         "Deadline": "1 Mart 2022"
@@ -74,7 +74,7 @@
         "WeekDuration": 3,
         "ClassDuration": 2,
         "InstructorName": "Mukhriddin Dev",
-        "BannerId": "flutter.png",
+        "BannerId": "fluttermob.png",
         "Themes": ["Zamonaviy kompyuter savodxonligi"],
         "CourseLevel": "O'rta",
         "Deadline": "12 Mart 2022"
