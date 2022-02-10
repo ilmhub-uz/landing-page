@@ -20,6 +20,7 @@ function Send_Data(url, formtype){
     jQuery.ajax({ 
         success: function(response) {
             document.forms[formtype].reset();
+            jQuery("#course-form")[0].reset();
         }
     });
   }
