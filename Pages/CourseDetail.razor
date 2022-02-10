@@ -136,7 +136,7 @@ Page content START -->
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-star"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience+</strong> yillik tajriba </span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience+</strong>+ yillik tajriba </span>
 														</div>
 													</li>
 												</ul>
@@ -277,7 +277,7 @@ Page content START -->
 	private Instructor instructor = new();
 	private static byte Discount = 0;
 	private static int courseCount = 0;
-	private Connection connection {get; set;}
+	private Connection connection = new();
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
