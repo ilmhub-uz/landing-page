@@ -68,12 +68,3 @@
 <PopularCourses/>
 
 <CommentsComponent/>
-
-@code
-{
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JsRuntime.InvokeVoidAsync("coursePreviewVideo");
-        await base.OnAfterRenderAsync(firstRender);
-    }
-} 
