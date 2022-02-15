@@ -107,7 +107,7 @@
         "ClassDuration": 1.5,
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "Arduino.png",
-        "Themes": ["Arduino qurilmasi bilan tanishish","LED lamapalar bilan ishlash","turli hil kattalikdagi TOK lar bilan ishlash","Sensorlar, kichik matorlar va joystick bilan ishlash","Fast typing","Prezentatsiya qilish qobilyati"],
+        "Themes": ["Arduino qurilmasi bilan tanishish","LED lamapalar bilan ishlash","Turli hil kattalikdagi TOK lar bilan ishlash","Sensorlar, kichik matorlar va joystick bilan ishlash","Fast typing","Prezentatsiya qilish qobilyati"],
         "CourseLevel": "Boshlang'ich",
         "Deadline": "1 Mart 2022"
     },
