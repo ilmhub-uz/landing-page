@@ -1,6 +1,8 @@
 @page "/coursedetail/{CourseTitle}"
-@page "/coursedetail/{CourseTitle}/{tab}"
+@* @page "/coursedetail/{CourseTitle}/{tab}" *@
+@inject NavigationManager NavigationManager
 @using System.Globalization
+@using Microsoft.AspNetCore.WebUtilities
 <main>
 <section class="bg-light py-0">
 	<div class="container">
@@ -32,14 +34,14 @@ Page content START -->
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[0]" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false"><a href="/coursedetail/@course.Title">Ma'lumot</a></button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[0]" @onclick="(() => ChangeUrl(string.Empty))" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[1]" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false"><a href="/coursedetail/@course.Title/instructor">Instruktor</a></button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[1]" @onclick='(() => ChangeUrl("instructor"))' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[2]" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false"><a href="/coursedetail/@course.Title/register">Ro'yxatdan o'tish</a></button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[2]" @onclick='(() => ChangeUrl("register"))' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
 							</li>
 							<!-- Tab item -->
 							
@@ -136,7 +138,7 @@ Page content START -->
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-star"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience+</strong>+ yillik tajriba </span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience</strong>+ yillik tajriba </span>
 														</div>
 													</li>
 												</ul>
@@ -324,5 +326,12 @@ Page content START -->
 			tabs[1]="active";
 		}
 	}
-
+	private void ChangeUrl(string Url)
+	{
+		var queryParams = new Dictionary<string, string>
+        {
+            ["tab"] = Url
+        };
+		NavigationManager.NavigateTo(QueryHelpers.AddQueryString($"/coursedetail/{course.Title}", queryParams));
+	}
 }
