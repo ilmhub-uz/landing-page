@@ -223,9 +223,9 @@ Page content START -->
 										</a>
 										<!-- dropdown button -->
 										<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
-											<li><a class="dropdown-item" href="https://telegram.me/share/url?url=@NavigationManager.Uri"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-											<li><a class="dropdown-item" href="http://www.facebook.com/share.php?u=@NavigationManager.Uri"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
-											<li><a class="dropdown-item" href="https://www.linkedin.com/sharing/share-offsite/?url=@NavigationManager.Uri"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('https://t.me/share/url?url='+location.href.toString())"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString())"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString())"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
 											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href)"><i class="fas fa-copy me-2"></i>Copy link</a></li>
 										</ul>
 									</div>
