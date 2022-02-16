@@ -1,8 +1,10 @@
 @page "/coursedetail/{CourseTitle}"
-@* @page "/coursedetail/{CourseTitle}/{tab}" *@
 @inject NavigationManager NavigationManager
 @using System.Globalization
 @using Microsoft.AspNetCore.WebUtilities
+@using System.Collections.Specialized
+@using System.Web
+@using Microsoft.AspNetCore.Components
 <main>
 <section class="bg-light py-0">
 	<div class="container">
@@ -288,12 +290,9 @@ Page content START -->
 </section>
 
 </main>
-
 @code{
 	[Parameter]
 	public string CourseTitle { get; set; } = "";
-	[Parameter]
-	public string tab { get; set; } = "";
 	[Inject]
     public HttpClient Http { get; set; }
 	private Course course = new(){Themes=new()};
@@ -301,6 +300,7 @@ Page content START -->
 	private static byte Discount = 0;
 	private static int courseCount = 0;
 	private Connection connection = new();
+	private string tab = "";
 	private string time = DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy ");
 	private List<string> tabs = new List<string>(){"active", "", ""};
 	protected override async Task OnInitializedAsync()
@@ -313,6 +313,13 @@ Page content START -->
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
+
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("tab", out var param))
+        {
+            tab = param;
+        }
+
 		if(tab=="register")
 		{
 			tabs[2]="active";
