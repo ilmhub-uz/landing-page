@@ -6,19 +6,22 @@
 **/
 
 function Send_Data(url, formtype){
-  if(jQuery("#name").val() != "" && jQuery("#phone").val() != "")
+  if(jQuery("#name").val() != "" && jQuery("#phone").val() != "" )
   {
+    if(formtype=="contact-form" && jQuery("#message").val() == ""){
+      return false;
+    }
     var form = document.forms[formtype]
     fetch(url, { method: 'POST', body: new FormData(form)})
     .then(response => $("#form_alerts").html("<div class='alert alert-success'>Xabar muvaffaqiyatli yetkazildi</div>"))
     .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Xabarni yetkazishda xatolik yuz berdi! Iltimos qaytadan urinib ko'ring.</div>"));
     
     form.addEventListener('submit', e => {
-        e.preventDefault();
+      e.preventDefault();
     });
+    // document.forms[formtype].reset();
     jQuery.ajax({ 
         success: function(response) {
-            document.forms[formtype].reset();
             jQuery("#"+formtype)[0].reset();
         }
     });
