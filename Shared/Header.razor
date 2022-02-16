@@ -38,7 +38,7 @@
 						<ul class="dropdown-menu" aria-labelledby="demoMenu">
 							@foreach (var course in courses)
 							{
-								<li> <button class="dropdown-item" @onclick="(()=> CourseDetail(course.Title))">@course.Title</button></li>
+								<li><button class="dropdown-item" @onclick="(()=> CourseDetail(course.Title))">@course.Title</button></li>
 							}
 							<li> <hr class="dropdown-divider"></li>
 							<li class="dropdown-submenu dropend">
