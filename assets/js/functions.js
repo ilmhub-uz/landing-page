@@ -4,6 +4,10 @@
 * @author Webestica (https://www.webestica.com/)
 * @version 1.1.0
 **/
+function ChangeQuery(url)
+{
+  history.pushState({}, '', url);
+}
 
 function Send_Data(url, formtype){
   if(jQuery("#name").val() != "" && jQuery("#phone").val() != "" )
