@@ -32,14 +32,14 @@ Page content START -->
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[0]" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false"><a href="/coursedetail/@course.Title">Ma'lumot</a></button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[1]" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false"><a href="/coursedetail/@course.Title/instructor">Instruktor</a></button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[2]" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false"><a href="/coursedetail/@course.Title/register">Ro'yxatdan o'tish</a></button>
 							</li>
 							<!-- Tab item -->
 							
@@ -51,7 +51,7 @@ Page content START -->
 					<div class="card-body p-4">
 						<div class="tab-content pt-2" id="course-pills-tabContent">
 							<!-- Content START -->
-							<div class="tab-pane active" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+							<div class="tab-pane @tabs[0]" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 								<!-- Course detail START -->
 								
 								<h5 class="mb-3">Kurs haqida</h5>
@@ -86,7 +86,7 @@ Page content START -->
 							</div>
 							
 							<!-- Content START -->
-							<div class="tab-pane mx-4 fade" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
+							<div class="tab-pane mx-4 @tabs[1]" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
 								<!-- Card START -->
 								<div class="card mb-0 ">
 									<div class="row g-0 align-items-center">
@@ -157,7 +157,7 @@ Page content START -->
 								@* <h5 class="">Instruktor haqida</h5>
 								<p class="mb-3">@instructor.AboutInstructor</p> *@
 							</div>
-							<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
+							<div class="tab-pane @tabs[2]" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
 								<div class="row g-3 mt-0">
 									<div class="col-md-6">
@@ -289,9 +289,9 @@ Page content START -->
 
 @code{
 	[Parameter]
-	public string CourseTitle { get; set; }
+	public string CourseTitle { get; set; } = "";
 	[Parameter]
-	public string tab { get; set; }
+	public string tab { get; set; } = "";
 	[Inject]
     public HttpClient Http { get; set; }
 	private Course course = new(){Themes=new()};
@@ -300,6 +300,7 @@ Page content START -->
 	private static int courseCount = 0;
 	private Connection connection = new();
 	private string time = DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy ");
+	private List<string> tabs = new List<string>(){"active", "", ""};
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
@@ -310,6 +311,18 @@ Page content START -->
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
+		if(tab=="register")
+		{
+			tabs[2]="active";
+			tabs[0]="";
+			tabs[1]="";
+		}
+		else if(tab == "instructor")
+		{
+			tabs[2]="";
+			tabs[0]="";
+			tabs[1]="active";
+		}
 	}
 
 }
