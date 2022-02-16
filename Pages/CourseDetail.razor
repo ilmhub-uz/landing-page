@@ -2,9 +2,6 @@
 @inject NavigationManager NavigationManager
 @using System.Globalization
 @using Microsoft.AspNetCore.WebUtilities
-@using System.Collections.Specialized
-@using System.Web
-@using Microsoft.AspNetCore.Components
 <main>
 <section class="bg-light py-0">
 	<div class="container">
@@ -96,7 +93,7 @@ Page content START -->
 									<div class="row g-0 align-items-center">
 										<div class="col-md-5 mb-4">
 											<!-- Image -->
-											<img src="/assets/images/avatar/@instructor.BannerId" class="img-fluid rounded-3" alt="instructor-image" style="height:7cm; width:7cm;">
+											<img src="/assets/images/avatar/@instructor.BannerId" class="img-fluid rounded-3" alt="instructor-image" >
 										</div>
 										<div class="col-md-7 mb-4">
 											<!-- Card body -->
@@ -229,7 +226,7 @@ Page content START -->
 											<li><a class="dropdown-item" href="#"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
 											<li><a class="dropdown-item" href="#"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
 											<li><a class="dropdown-item" href="#"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-											<li ><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Copy link</a></li>
+											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href)"><i class="fas fa-copy me-2"></i>Copy link</a></li>
 										</ul>
 									</div>
 								</div>
