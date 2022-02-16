@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @using System.Globalization
 @using Microsoft.AspNetCore.WebUtilities
+@inject IJSRuntime jsRuntime
 <main>
 <section class="bg-light py-0">
 	<div class="container">
@@ -33,14 +34,14 @@ Page content START -->
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[0]" @onclick="(() => ChangeUrl(string.Empty))" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[0]" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[1]" @onclick='(() => ChangeUrl("instructor"))' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[1]" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[2]" @onclick='(() => ChangeUrl("register"))' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[2]" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
 							</li>
 							<!-- Tab item -->
 							
@@ -328,13 +329,5 @@ Page content START -->
 			tabs[0]="";
 			tabs[1]="active";
 		}
-	}
-	private void ChangeUrl(string Url)
-	{
-		var queryParams = new Dictionary<string, string>
-        {
-            ["tab"] = Url
-        };
-		NavigationManager.NavigateTo(QueryHelpers.AddQueryString($"/coursedetail/{course.Title}", queryParams));
 	}
 }

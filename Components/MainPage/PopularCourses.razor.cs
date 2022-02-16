@@ -11,7 +11,7 @@ public partial class PopularCourses : ComponentBase
     
     public List<Course> Courses { get; set; } = new List<Course>();
 
-    public List<string> Tags { get; set; } = new List<string> { "Hammasi " };
+    public List<string> Tags { get; set; } = new List<string> { "Barcha kurslar" };
 
     public List<Course> SelectedCourses { get; set; }
     
