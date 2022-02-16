@@ -1,6 +1,6 @@
 @page "/coursedetail/{CourseTitle}"
+@page "/coursedetail/{CourseTitle}/{tab}"
 @using System.Globalization
-
 <main>
 <section class="bg-light py-0">
 	<div class="container">
@@ -36,7 +36,7 @@ Page content START -->
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0" @onclick="GetInstructor" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+								<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
 								<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
@@ -86,7 +86,7 @@ Page content START -->
 							</div>
 							
 							<!-- Content START -->
-							<div class="tab-pane fade mx-4" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
+							<div class="tab-pane mx-4 fade" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
 								<!-- Card START -->
 								<div class="card mb-0 ">
 									<div class="row g-0 align-items-center">
@@ -159,30 +159,33 @@ Page content START -->
 							</div>
 							<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
-								<form class="row g-3 mt-0" name="register-form" id="register-form">
+								<div class="row g-3 mt-0">
 									<div class="col-md-6">
 										<img src="/assets/images/element/reg.png" style="background-color: blue;border-radius:7%;">
 									</div>
-									<div class="col-md-6 bg-light-input">
-										<label for="name" class="form-label">Ismingiz *</label>
-										<input type="text" name="Name" class="form-control" id="name" required>
-										<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label>
-										<input type="text" name="Phone" class="form-control" id="phone" required >
-										<label for="message" class="form-label mt-2">Xabar</label>
-										<input hidden name="Course" value="@course.Title" id="course">
-										<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
-										<label for="CourseType" class="form-label mt-2">Kurs formati *</label>
-										<select class="form-select" name="Format" id="CourseType" required>
-											<option value="Offline">Offline</option>
-											<option value="Online">Online</option>
-										</select>
-									</div>
+										<div class="col-md-6 bg-light-input">
+											<form name="register-form" id="register-form">
+													<label for="name" class="form-label">Ismingiz *</label>
+													<input type="text" name="Name" class="form-control" id="name" required>
+													<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label>
+													<input type="text" name="Phone" class="form-control" id="phone" required >
+													<label for="message" class="form-label mt-2">Xabar</label>
+													<input hidden name="Course" value="@course.Title" id="course">
+													<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
+													<label for="CourseType" class="form-label mt-2">Kurs formati *</label>
+													<select class="form-select" name="Format" id="CourseType" required>
+														<option value="Offline">Offline</option>
+														<option value="Online">Online</option>
+													</select>
+													<input hidden value="@time" name="Date">
+												<!-- State option -->
+											</form>
+										</div>
 									<div class="text-center">
-										<button class="btn btn-lg btn-success mt-3 mb-0" onclick="Send_Data('@connection.RegisterConnection', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
+										<button class="btn btn-lg btn-success mt-3 mb-0" id="SendButton" onclick="Send_Data('@connection.RegisterConnection', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
 									</div>	
-									<!-- State option -->
 									<div class="mt-3" id="form_alerts"></div>
-								</form>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -214,7 +217,7 @@ Page content START -->
 									</div>
 									<div class="dropdown">
 										<!-- Share button -->
-										<a href="#" class="btn btn-sm btn-light rounded small" role="button" id="dropdownShare" data-bs-toggle="dropdown" >
+										<a class="btn btn-sm btn-light rounded small" id="dropdownShare" data-bs-toggle="dropdown" >
 											<i class="fas fa-fw fa-share-alt"></i>
 										</a>
 										<!-- dropdown button -->
@@ -287,6 +290,8 @@ Page content START -->
 @code{
 	[Parameter]
 	public string CourseTitle { get; set; }
+	[Parameter]
+	public string tab { get; set; }
 	[Inject]
     public HttpClient Http { get; set; }
 	private Course course = new(){Themes=new()};
@@ -294,6 +299,7 @@ Page content START -->
 	private static byte Discount = 0;
 	private static int courseCount = 0;
 	private Connection connection = new();
+	private string time = DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy ");
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
@@ -302,11 +308,8 @@ Page content START -->
 		courseCount = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.InstructorName == course.InstructorName).Count<Course>();
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
-	}
-
-	private async Task GetInstructor()
-	{
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
 	}
+
 }
