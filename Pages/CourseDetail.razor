@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @using System.Globalization
 @using Microsoft.AspNetCore.WebUtilities
+@using System.Text
 @inject IJSRuntime jsRuntime
 <main>
 <section class="bg-light py-0">
@@ -34,14 +35,14 @@ Page content START -->
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[0]" @onclick='()=>ChangeQueryTab("")' id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[0].ToString()" @onclick='()=>ChangeQueryTab("")' id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[1]" @onclick='()=>ChangeQueryTab("instructor")' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[1].ToString()" @onclick='()=>ChangeQueryTab("instructor")' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[2]" @onclick='()=>ChangeQueryTab("register")' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[2].ToString()" @onclick='()=>ChangeQueryTab("register")' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
 							</li>
 							<!-- Tab item -->
 							
@@ -53,7 +54,7 @@ Page content START -->
 					<div class="card-body p-4">
 						<div class="tab-content pt-2" id="course-pills-tabContent">
 							<!-- Content START -->
-							<div class="tab-pane @tabs[0]" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+							<div class="tab-pane @tabs[0].ToString()" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 								<!-- Course detail START -->
 								
 								<h5 class="mb-3">Kurs haqida</h5>
@@ -87,7 +88,7 @@ Page content START -->
 							</div>
 							
 							<!-- Content START -->
-							<div class="tab-pane mx-4 @tabs[1]" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
+							<div class="tab-pane mx-4 @tabs[1].ToString()" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
 								<!-- Card START -->
 								<div class="card mb-0 ">
 									<div class="row g-0 align-items-center">
@@ -230,7 +231,7 @@ Page content START -->
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane @tabs[2]" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
+							<div class="tab-pane @tabs[2].ToString()" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
 								<div class="row g-3 mt-0">
 									<div class="col-md-6">
@@ -250,7 +251,7 @@ Page content START -->
 														<option value="Offline">Offline</option>
 														<option value="Online">Online</option>
 													</select>
-													<input hidden value="@time" name="Date">
+													<input hidden value="@time.ToString()" name="Date">
 											</form>
 										</div>
 									<div class="text-center">
@@ -291,10 +292,10 @@ Page content START -->
 										</a>
 										<!-- dropdown button -->
 										<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
-											<li><a class="dropdown-item" type="button" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tab')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-											<li><a class="dropdown-item" type="button" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tab')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
-											<li><a class="dropdown-item" type="button" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tab')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href+'?tab=@tab')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href.toString()+'?tab=@tab.ToString()')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
 										</ul>
 									</div>
 								</div>
@@ -360,16 +361,16 @@ Page content START -->
 	public string CourseTitle { get; set; } = "";
 	[Inject]
     public HttpClient Http { get; set; }
-	private Course course = new(){Themes=new()};
+	private Course course = new Course(){Themes=new()};
 	private Instructor instructor = new();
 	private static byte Discount = 0;
 	private static List<Course> courses = new();
 	private static List<Course> PaginatedCourses = new();
 	private Connection connection = new();
 	private int paginatedCount = 1;
-	private string tab = "";
-	private string time = DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy ");
-	private List<string> tabs = new List<string>(){"active", "", ""};
+	private StringBuilder tab = new StringBuilder("");
+	private StringBuilder time = new StringBuilder(DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy "));
+	private List<StringBuilder> tabs = new List<StringBuilder>(){new("active"), new(), new()};
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
@@ -384,30 +385,33 @@ Page content START -->
         var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("tab", out var param))
         {
-            tab = param;
+            tab = new StringBuilder(param);
         }
 
-		if(tab=="register")
+		if(tab.ToString()=="register")
 		{
-			tabs[2]="active";
-			tabs[0]="";
-			tabs[1]="";
+			tabs[2] = new("active");
+			tabs[0].Clear();
+			tabs[1].Clear();
 		}
-		else if(tab == "instructor")
+		else if(tab.ToString() == "instructor")
 		{
-			tabs[2]="";
-			tabs[0]="";
-			tabs[1]="active";
+			tabs[2].Clear();
+			tabs[0].Clear();
+			tabs[1] = new("active");
 		}
 	}
+
 	private void ChangeQueryTab(string active)
 	{
-		tab = active;
+		tab = new StringBuilder(active);
 	}
-	private void NavigateToCourse(string Url, string tab)
+
+	private void NavigateToCourse(string Url, string tab1)
 	{
-		NavigationManager.NavigateTo($"/coursedetail/{Url}?tab={tab}", forceLoad:true);
+		NavigationManager.NavigateTo($"/coursedetail/{Url}?tab={tab1}", forceLoad:true);
 	}
+
 	private void GetPaginatedCourses(int page)
 	{
 		if(page==0)
