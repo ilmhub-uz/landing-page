@@ -84,7 +84,6 @@ Page content START -->
 
 								<p class="mb-0">Bizga qo'shilishni istaysizmi? Unday bo'lsa <strong>@course.Title</strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!</p>
 								<!-- Course detail END -->
-
 							</div>
 							
 							<!-- Content START -->
@@ -132,7 +131,7 @@ Page content START -->
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-play"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@courseCount</strong> Kurslar </span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@courses.Count()</strong> Kurslar </span>
 														</div>
 													</li>
 													<li class="list-inline-item">
@@ -153,11 +152,83 @@ Page content START -->
 										</div>
 									</div>
 								</div>
-								<!-- Card END -->
-								
+
 								<!-- Instructor info -->
 								@* <h5 class="">Instruktor haqida</h5>
 								<p class="mb-3">@instructor.AboutInstructor</p> *@
+								<div class="row">
+									<div class="col-12">
+										<div class="card border bg-transparent rounded-3 ">
+											<!-- Card header START -->
+											<div class="card-header bg-transparent border-bottom ">
+												<h4 class="mb-2 mb-sm-0 text-center">Boshqa kurslar</h4	>
+											</div>
+											<div class="card-body">
+												<div class="table-responsive-lg border-0 rounded-3">
+													<table class="table table-dark-gray align-middle p-4 mb-0">
+														<thead>
+															<tr>
+																<th scope="col" class="border-0 rounded-start text-center">Kurs nomi</th>
+																<th scope="col" class="border-0 text-center">Narx</th>
+																<th scope="col" class="border-0 text-center">Davomiyligi</th>
+																<th scope="col" class="border-0 rounded-end text-center">Ro'yxatdan o'tish</th>
+															</tr>
+														</thead>
+														@{
+															var format = CultureInfo.CreateSpecificCulture("uz-Latn-Uz").NumberFormat;
+															format.CurrencyPositivePattern = 3;
+														}
+														<tbody>
+															@foreach(Course courseItem in PaginatedCourses)
+															{
+																<tr>
+																	<td>
+																		<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, string.Empty)'>
+																			<div class="d-flex align-items-center">
+																				<div class="w-100px w-md-60px">
+																					<img src="assets/images/courses/@courseItem.BannerId" class="rounded" alt="">
+																				</div>
+																				<h6 class="mb-0 ms-2">	
+																					<a type="button">@courseItem.Title</a>
+																				</h6>
+																			</div>
+																		</a>
+																	</td>
+																	<td class="text-center"><strong>@courseItem.CostInUzs.ToString("C0", format)</strong></td>
+																	<td class="text-center">
+																		<span class="badge bg-primary bg-opacity-10 text-primary"><strong>@courseItem.CourseDuration</strong> oy</span>
+																	</td>
+																	<td class="text-center">
+																		<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, "register")' class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+																	</td>
+																</tr>
+															}
+														</tbody>
+													</table>
+												</div>
+
+												<!-- Pagination -->
+												<div class="d-sm-flex align-items-sm-center mt-3">
+													<ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0" style="margin: auto;">
+														<li class="page-item mb-0"><a class="page-link" type="button" @onclick='()=>GetPaginatedCourses(-1)' tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+														@for(int i = 1; i <= (courses.Count()+2)/3;i++)
+														{
+															var page = i;
+															if(i == paginatedCount){
+																<li class="page-item mb-0 active"><button class="page-link" type="button" @onclick="(()=>GetPaginatedCourses(page))">@i</button></li>
+															}
+															else{
+																<li class="page-item mb-0"><button class="page-link" type="button" @onclick='(()=>GetPaginatedCourses(page))'>@i</button></li>
+															}
+														}
+														<li class="page-item mb-0 "><button class="page-link" @onclick='()=>GetPaginatedCourses(0)'><i class="fas fa-angle-right"></i></button></li>
+													</ul>
+												</div>
+											</div>
+											<!-- Card body START -->
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="tab-pane @tabs[2]" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
@@ -180,7 +251,6 @@ Page content START -->
 														<option value="Online">Online</option>
 													</select>
 													<input hidden value="@time" name="Date">
-												<!-- State option -->
 											</form>
 										</div>
 									<div class="text-center">
@@ -208,10 +278,7 @@ Page content START -->
 							<!-- Card body -->
 							<div class="card-body px-3">
 								<!-- Info -->
-								@{
-									var format = CultureInfo.CreateSpecificCulture("uz-Latn-Uz").NumberFormat;
-									format.CurrencyPositivePattern = 3;
-								}
+								
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex align-items-center">
 										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-chalkboard-teacher"></i></span><span class="fw-bold">&nbspOffline:</span>
@@ -287,6 +354,7 @@ Page content START -->
 	</div>
 </section>
 </main>
+
 @code{
 	[Parameter]
 	public string CourseTitle { get; set; } = "";
@@ -295,8 +363,10 @@ Page content START -->
 	private Course course = new(){Themes=new()};
 	private Instructor instructor = new();
 	private static byte Discount = 0;
-	private static int courseCount = 0;
+	private static List<Course> courses = new();
+	private static List<Course> PaginatedCourses = new();
 	private Connection connection = new();
+	private int paginatedCount = 1;
 	private string tab = "";
 	private string time = DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy ");
 	private List<string> tabs = new List<string>(){"active", "", ""};
@@ -305,12 +375,12 @@ Page content START -->
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.Title==CourseTitle).FirstOrDefault();
 		Discount = (byte)((1 - (double)course.OnlineCourseCost/(double)course.CostInUzs)*100);
-		courseCount = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
-			.Where(c => c.InstructorName == course.InstructorName).Count<Course>();
+		courses = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
+			.Where(c => c.InstructorName == course.InstructorName && c.Title!=course.Title).ToList();
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
-
+		PaginatedCourses = courses.Skip(0).Take(3).ToList();
         var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("tab", out var param))
         {
@@ -333,5 +403,25 @@ Page content START -->
 	private void ChangeQueryTab(string active)
 	{
 		tab = active;
+	}
+	private void NavigateToCourse(string Url, string tab)
+	{
+		NavigationManager.NavigateTo($"/coursedetail/{Url}?tab={tab}", forceLoad:true);
+	}
+	private void GetPaginatedCourses(int page)
+	{
+		if(page==0)
+		{
+			paginatedCount = paginatedCount+1 <= (courses.Count()+2)/3?++paginatedCount:paginatedCount;
+		}
+		else if(page==-1)
+		{
+			paginatedCount = paginatedCount > 1?--paginatedCount:paginatedCount;
+		}
+		else
+		{
+			paginatedCount = page;
+		}
+		PaginatedCourses = courses.Skip((paginatedCount-1)*3).Take(3).ToList();
 	}
 }
