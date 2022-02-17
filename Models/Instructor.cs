@@ -20,7 +20,7 @@ public class Instructor
 
     public string TwitterUrl { get; set; }
 
-    public string StudentCount { get; set; }
+    public int StudentCount { get; set; }
 
     public string BannerId { get; set; }
 }

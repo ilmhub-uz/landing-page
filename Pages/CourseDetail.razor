@@ -34,14 +34,14 @@ Page content START -->
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[0]" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[0]" @onclick='()=>ChangeQueryTab("")' id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[1]" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[1]" @onclick='()=>ChangeQueryTab("instructor")' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[2]" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[2]" @onclick='()=>ChangeQueryTab("register")' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
 							</li>
 							<!-- Tab item -->
 							
@@ -126,7 +126,7 @@ Page content START -->
 													<li class="list-inline-item">
 														<div class="d-flex align-items-center me-3 mb-2">
 															<span class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.StudentCount</strong> bitiruvchilar</span>
+															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.StudentCount</strong>+ bitiruvchilar</span>
 														</div>
 													</li>
 													<li class="list-inline-item">
@@ -224,10 +224,10 @@ Page content START -->
 										</a>
 										<!-- dropdown button -->
 										<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
-											<li><a class="dropdown-item" type="button" onclick="window.open('https://t.me/share/url?url='+location.href.toString())"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-											<li><a class="dropdown-item" type="button" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString())"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
-											<li><a class="dropdown-item" type="button" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString())"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href)"><i class="fas fa-copy me-2"></i>Copy link</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tab')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tab')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
+											<li><a class="dropdown-item" type="button" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tab')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href+'?tab=@tab')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
 										</ul>
 									</div>
 								</div>
@@ -329,5 +329,9 @@ Page content START -->
 			tabs[0]="";
 			tabs[1]="active";
 		}
+	}
+	private void ChangeQueryTab(string active)
+	{
+		tab = active;
 	}
 }
