@@ -6,7 +6,6 @@
 **/
 function PhoneValidation(){
       let phoneInputField = document.querySelector("#phone");
-      var ph = document.getElementById("phone").value
       let phoneInput = window.intlTelInput(phoneInputField, {
         preferredCountries: ["uz", "us","gb", "ru"],
         utilsScript:
@@ -14,8 +13,6 @@ function PhoneValidation(){
       });
 
       const phoneNumber = phoneInput.getNumber();
-      console.log(ph);
-      console.log(phoneNumber);
       if(phoneInput.isValidNumber()) {
         
       }else {
@@ -39,7 +36,6 @@ function Send_Data(url, formtype){
     form.addEventListener('submit', e => {
       e.preventDefault();
     });
-    console.log(form)
     jQuery.ajax({ 
         success: function(response) {
             jQuery("#"+formtype)[0].reset();
