@@ -242,7 +242,7 @@ Page content START -->
 													<label for="name" class="form-label">Ismingiz *</label>
 													<input type="text" name="Name" class="form-control" id="name" required>
 													<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label>
-													<input type="text" name="Phone" class="form-control" id="phone" required >
+													<input type="tel" name="Phone" class="form-control" id="phone"><br>
 													<label for="message" class="form-label mt-2">Xabar</label>
 													<input hidden name="Course" value="@course.Title" id="course">
 													<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
@@ -382,6 +382,7 @@ Page content START -->
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
 		PaginatedCourses = courses.Skip(0).Take(3).ToList();
+		await jsRuntime.InvokeVoidAsync("PhoneValidation");
         var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("tab", out var param))
         {

@@ -1,8 +1,8 @@
 @page "/contactus"
 @using landing.Components.ContactDetails
 @inject HttpClient Http
-
-<section>
+@inject IJSRuntime JS
+<section >
 	<div class="container">
 		<div class="row g-4 g-lg-0 align-items-center">
 			<div class="col-md-6 align-items-center text-center">
@@ -23,7 +23,7 @@
 					</div>
 					<div class="mb-4 bg-light-input">
 						<label for="phone" class="form-label">Telefon raqamingiz *</label>
-						<input type="tel" name="Phone" class="form-control form-control-lg" id="phone" required>
+						<p><input type="tel" name="Phone" class="form-control form-control-lg" onchange="PhoneValidation()" id="phone"></p>
 					</div>
 					<div class="mb-4 bg-light-input">
 						<label for="message" class="form-label">Habar *</label>
@@ -46,5 +46,6 @@
 	protected override async Task OnInitializedAsync()
 	{
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
+		await JS.InvokeVoidAsync("PhoneValidation");
 	}
 }
