@@ -4,9 +4,23 @@
 * @author Webestica (https://www.webestica.com/)
 * @version 1.1.0
 **/
-function ChangeQuery(url)
-{
-  history.pushState({}, '', url);
+function PhoneValidation(){
+      let phoneInputField = document.querySelector("#phone");
+      var ph = document.getElementById("phone").value
+      let phoneInput = window.intlTelInput(phoneInputField, {
+        preferredCountries: ["uz", "us","gb", "ru"],
+        utilsScript:
+          "tel.js",
+      });
+
+      const phoneNumber = phoneInput.getNumber();
+      console.log(ph);
+      console.log(phoneNumber);
+      if(phoneInput.isValidNumber()) {
+        
+      }else {
+        
+      }
 }
 
 function Send_Data(url, formtype){
