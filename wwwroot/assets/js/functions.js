@@ -46,7 +46,7 @@ function PhoneValidation(){
   if(phoneInput.isValidNumber()) {
     document.getElementById("phone").value = phoneNumber;
   }else {
-    
+    // $('#SendButton').attr('disabled', 'disabled');
   }
 }
 
@@ -59,8 +59,7 @@ function Send_Data(url, formtype){
     fetch(url, { method: 'POST', body: new FormData(form)})
     .then(response => $("#form_alerts").html("<div class='alert alert-success'>Xabar muvaffaqiyatli yetkazildi</div>"))
     .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Xabarni yetkazishda xatolik yuz berdi! Iltimos qaytadan urinib ko'ring.</div>"))
-    .finally(response => document.getElementById("SendButton").disabled = false)
-    .then(response=> SetCountryCode());
+    .finally(response=> SetCountryCode());
     
     form.addEventListener('submit', e => {
       e.preventDefault();
