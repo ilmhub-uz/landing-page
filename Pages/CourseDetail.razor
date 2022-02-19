@@ -190,7 +190,7 @@ Page content START -->
 																					<img src="assets/images/courses/@courseItem.BannerId" class="rounded" alt="">
 																				</div>
 																				<h6 class="mb-0 ms-2">	
-																					<a type="button">@courseItem.Title</a>
+																					<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, "")'>@courseItem.Title</a>
 																				</h6>
 																			</div>
 																		</a>
