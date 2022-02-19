@@ -216,10 +216,10 @@ Page content START -->
 														{
 															var page = i;
 															if(i == paginatedCount){
-																<li class="page-item mb-0 active"><button class="page-link" type="button" @onclick="(()=>GetPaginatedCourses(page))">@i</button></li>
+																<li class="page-item mb-0 active"><button class="page-link" @onclick="(()=>GetPaginatedCourses(page))">@i</button></li>
 															}
 															else{
-																<li class="page-item mb-0"><button class="page-link" type="button" @onclick='(()=>GetPaginatedCourses(page))'>@i</button></li>
+																<li class="page-item mb-0"><button class="page-link" @onclick='(()=>GetPaginatedCourses(page))'>@i</button></li>
 															}
 														}
 														<li class="page-item mb-0 "><button class="page-link" @onclick='()=>GetPaginatedCourses(0)'><i class="fas fa-angle-right"></i></button></li>

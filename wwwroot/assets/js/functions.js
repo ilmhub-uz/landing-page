@@ -4,6 +4,11 @@
 * @author Webestica (https://www.webestica.com/)
 * @version 1.1.0
 **/
+function StopVideo(){
+  $('#exampleModal').on('hidden.bs.modal', function () {
+      $("#exampleModal iframe").attr("src", $("#exampleModal iframe").attr("src"));
+  });
+}
 function PhoneValidation(){
       let phoneInputField = document.querySelector("#phone");
       let phoneInput = window.intlTelInput(phoneInputField, {
