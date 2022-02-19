@@ -4,7 +4,7 @@ public class Instructor
 {
     public string InstructorName { get; set; }
     
-    public string AboutInstructor { get; set; }
+    public string University { get; set; }
     
     public byte Experience { get; set; }
         

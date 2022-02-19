@@ -1,7 +1,7 @@
 [
     {
         "InstructorName": "Wahid Abduhakimov",
-        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "University": "Sejong Universiteti",
         "Experience": 5,
         "MentorWorkPlace": "Gluwa inc.",
         "InstagramUrl": "https://instagram.com/wahid.abduhakimov?utm_medium=copy_link",
@@ -14,7 +14,7 @@
     },
     {
         "InstructorName": "Davron Abduhakimov",
-        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "University": "Sejong Universiteti",
         "Experience": 2,
         "MentorWorkPlace": "Ilmhub It center.",
         "InstagramUrl": "#",
@@ -23,11 +23,11 @@
         "TelegramUrl": "#",
         "TwitterUrl": "#",
         "StudentCount": 150,
-        "BannerId": "02.jpg"
+        "BannerId": "davron.jpg"
     },
     {
         "InstructorName": "Mukhriddin Dev",
-        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "University": "Sejong Universiteti",
         "Experience": 5,
         "MentorWorkPlace": "Korean company",
         "InstagramUrl": "#",
@@ -40,7 +40,7 @@
     },
     {
         "InstructorName": "Kilichbek Haydarov",
-        "AboutInstructor": "Nosir akani gapiga qaraganda mehribon ustoz",
+        "University": "Sejong Universiteti",
         "Experience": 5,
         "MentorWorkPlace": "Machine Learning",
         "InstagramUrl": "#",
