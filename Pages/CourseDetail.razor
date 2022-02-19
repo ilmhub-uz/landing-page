@@ -235,11 +235,11 @@ Page content START -->
 										<img src="/assets/images/element/reg.png" style="background-color: blue;border-radius:7%;">
 									</div>
 										<div class="col-md-6 bg-light-input">
-											<form name="register-form" id="register-form">
+											<form name="register-form" id="register-form" oninput="FormInputValidation()">
 													<label for="name" class="form-label">Ismingiz *</label>
 													<input type="text" name="Name" class="form-control" id="name" required>
 													<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label><br>
-													<input type="tel" name="Phone" class="form-control" id="phone"><br>
+													<input type="tel" name="Phone" class="form-control" id="phone" onchange="PhoneValidation()"><br>
 													<label for="message" class="form-label mt-2">Xabar</label>
 													<input hidden name="Course" value="@course.Title" id="course">
 													<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
@@ -252,7 +252,7 @@ Page content START -->
 											</form>
 										</div>
 									<div class="text-center">
-										<button class="btn btn-lg btn-success mt-3 mb-0" id="SendButton" onclick="Send_Data('@connection.RegisterConnection', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
+										<button class="btn btn-lg btn-success mt-3 mb-0" disabled id="SendButton" onclick="Send_Data('@connection.RegisterConnection', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
 									</div>	
 									<div class="mt-3" id="form_alerts"></div>
 								</div>
@@ -379,7 +379,7 @@ Page content START -->
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
 		PaginatedCourses = courses.Skip(0).Take(3).ToList();
-		await jsRuntime.InvokeVoidAsync("PhoneValidation");
+		await jsRuntime.InvokeVoidAsync("SetCountryCode");
         var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("tab", out var param))
         {

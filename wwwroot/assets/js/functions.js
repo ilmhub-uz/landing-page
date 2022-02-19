@@ -4,30 +4,53 @@
 * @author Webestica (https://www.webestica.com/)
 * @version 1.1.0
 **/
+
+function FormInputValidation(){
+    let empty = false;
+    $('.form-control').each(function() {
+        if ($(this).val() === "") {
+          empty = true;
+        }
+    });
+    if (empty) {
+      $('#SendButton').attr('disabled', 'disabled');
+    } else {
+      $('#SendButton').removeAttr('disabled');
+    }
+}
+
 function StopVideo(){
   $('#exampleModal').on('hidden.bs.modal', function () {
       $("#exampleModal iframe").attr("src", $("#exampleModal iframe").attr("src"));
   });
 }
-function PhoneValidation(){
-      let phoneInputField = document.querySelector("#phone");
-      let phoneInput = window.intlTelInput(phoneInputField, {
-        preferredCountries: ["uz", "us","gb", "ru"],
-        utilsScript:
-          "tel.js",
-      });
+function SetCountryCode(){
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    preferredCountries: ["uz", "us","gb", "ru"],
+    utilsScript:
+    "tel.js",
+  });
+  const CountryCode = phoneInput.getSelectedCountryData().dialCode;
+  document.getElementById("phone").value = "+"+CountryCode;
+}
 
-      const phoneNumber = phoneInput.getNumber();
-      if(phoneInput.isValidNumber()) {
-        
-      }else {
-        
-      }
+function PhoneValidation(){
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+  preferredCountries: ["uz", "us","gb", "ru"],
+  utilsScript:
+    "tel.js",
+  });
+  const phoneNumber = phoneInput.getNumber();
+  if(phoneInput.isValidNumber()) {
+    document.getElementById("phone").value = phoneNumber;
+  }else {
+    
+  }
 }
 
 function Send_Data(url, formtype){
-  if(jQuery("#name").val() != "" && jQuery("#phone").val() != "" )
-  {
     if(formtype=="contact-form" && jQuery("#message").val() == ""){
       return false;
     }
@@ -36,7 +59,8 @@ function Send_Data(url, formtype){
     fetch(url, { method: 'POST', body: new FormData(form)})
     .then(response => $("#form_alerts").html("<div class='alert alert-success'>Xabar muvaffaqiyatli yetkazildi</div>"))
     .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Xabarni yetkazishda xatolik yuz berdi! Iltimos qaytadan urinib ko'ring.</div>"))
-    .finally(response => document.getElementById("SendButton").disabled = false);
+    .finally(response => document.getElementById("SendButton").disabled = false)
+    .then(response=> SetCountryCode());
     
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -46,7 +70,6 @@ function Send_Data(url, formtype){
             jQuery("#"+formtype)[0].reset();
         }
     });
-  }
 }
 "use strict";
 
