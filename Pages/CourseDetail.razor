@@ -184,13 +184,13 @@ Page content START -->
 															{
 																<tr>
 																	<td>
-																		<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, string.Empty)'>
+																		<a href="javascript:function() { return false; }" @onclick='()=>NavigateToCourse(courseItem.Title, string.Empty)'>
 																			<div class="d-flex align-items-center">
 																				<div class="w-100px w-md-60px">
 																					<img src="assets/images/courses/@courseItem.BannerId" class="rounded" alt="">
 																				</div>
 																				<h6 class="mb-0 ms-2">	
-																					<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, "")'>@courseItem.Title</a>
+																					<a @onclick='()=>NavigateToCourse(courseItem.Title, "")'>@courseItem.Title</a>
 																				</h6>
 																			</div>
 																		</a>
@@ -200,7 +200,7 @@ Page content START -->
 																		<span class="badge bg-primary bg-opacity-10 text-primary"><strong>@courseItem.CourseDuration</strong> oy</span>
 																	</td>
 																	<td class="text-center">
-																		<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, "register")' class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+																		<a @onclick='()=>NavigateToCourse(courseItem.Title, "register")' class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
 																	</td>
 																</tr>
 															}
@@ -292,10 +292,10 @@ Page content START -->
 										</a>
 										<!-- dropdown button -->
 										<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
-											<li><a class="dropdown-item" type="button" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-											<li><a class="dropdown-item" type="button" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
-											<li><a class="dropdown-item" type="button" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-											<li ><a class="dropdown-item" type="button" onclick="navigator.clipboard.writeText(window.location.href.toString()+'?tab=@tab.ToString()')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
+											<li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+											<li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
+											<li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+											<li ><a class="dropdown-item" href="javascript:function() { return false; }" onclick="navigator.clipboard.writeText(window.location.href.toString()+'?tab=@tab.ToString()')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
 										</ul>
 									</div>
 								</div>
