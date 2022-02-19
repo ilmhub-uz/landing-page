@@ -190,7 +190,7 @@ Page content START -->
 																					<img src="assets/images/courses/@courseItem.BannerId" class="rounded" alt="">
 																				</div>
 																				<h6 class="mb-0 ms-2">	
-																					<a type="button">@courseItem.Title</a>
+																					<a type="button" @onclick='()=>NavigateToCourse(courseItem.Title, "")'>@courseItem.Title</a>
 																				</h6>
 																			</div>
 																		</a>
@@ -241,7 +241,7 @@ Page content START -->
 											<form name="register-form" id="register-form">
 													<label for="name" class="form-label">Ismingiz *</label>
 													<input type="text" name="Name" class="form-control" id="name" required>
-													<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label>
+													<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label><br>
 													<input type="tel" name="Phone" class="form-control" id="phone"><br>
 													<label for="message" class="form-label mt-2">Xabar</label>
 													<input hidden name="Course" value="@course.Title" id="course">
