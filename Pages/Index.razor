@@ -43,11 +43,11 @@
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
 		<div class="modal-header">
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<button onclick="StopVideo()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
-		<div class="modal-body" >
-			<div class="ratio ratio-16x9">
-				<iframe id="ytplayer" src="https://www.youtube.com/embed/A_1e-HMqrFg?&playlist=A_1e-HMqrFg&loop=1" ></iframe>
+		<div class="modal-body">
+			<div class="ratio ratio-16x9" id="yt-player">
+				<iframe src="https://www.youtube.com/embed/A_1e-HMqrFg?&playlist=A_1e-HMqrFg&loop=1" ></iframe>
 			</div>
 		</div>
     </div>
