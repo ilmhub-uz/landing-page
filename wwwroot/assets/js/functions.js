@@ -1,9 +1,3 @@
-/**
-* Eduport- LMS, Education and Course Theme
-*
-* @author Webestica (https://www.webestica.com/)
-* @version 1.1.0
-**/
 
 function FormInputValidation(){
     let empty = false;
