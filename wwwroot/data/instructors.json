@@ -8,7 +8,7 @@
         "FacebookUrl": "#",
         "LinkedInUrl": "https://www.linkedin.com/in/wahidabduhakimov",
         "TelegramUrl": "https://t.me/wahidsblog",
-        "TwitterUrl": "#",
+        "GithubUrl": "#",
         "StudentCount": 750,
         "BannerId": "wahid.jpg"
     },
@@ -21,7 +21,7 @@
         "FacebookUrl": "#",
         "LinkedInUrl": "#",
         "TelegramUrl": "#",
-        "TwitterUrl": "#",
+        "GithubUrl": "#",
         "StudentCount": 150,
         "BannerId": "davron.jpg"
     },
@@ -34,7 +34,7 @@
         "FacebookUrl": "#",
         "LinkedInUrl": "#",
         "TelegramUrl": "#",
-        "TwitterUrl": "#",
+        "GithubUrl": "#",
         "StudentCount": 250,
         "BannerId": "02.jpg"
     },
@@ -47,7 +47,7 @@
         "FacebookUrl": "#",
         "LinkedInUrl": "#",
         "TelegramUrl": "#",
-        "TwitterUrl": "#",
+        "GithubUrl": "#",
         "StudentCount": 250,
         "BannerId": "04.jpg"
     }

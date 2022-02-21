@@ -29,7 +29,7 @@
 						<ul class="dropdown-menu" aria-labelledby="demoMenu">
 							@foreach (var course in courses)
 							{
-								<li><button class="dropdown-item" @onclick="(()=> CourseDetail(course.Title))">@course.Title</button></li>
+								<li><a class="dropdown-item" href="/coursedetail/@course.Title">@course.Title</a></li>
 							}
 							<li> <hr class="dropdown-divider"></li>
 							<li class="dropdown-submenu dropend">
@@ -37,7 +37,7 @@
 								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
 									@foreach (var kid in Kids)
 									{	
-										<li> <button class="dropdown-item" @onclick="(() => CourseDetail(kid.Title))">@kid.Title</button></li>
+										<li> <a class="dropdown-item" href="/coursedetail/@kid.Title">@kid.Title</a></li>
 									}
 								</ul>
 							</li>
@@ -77,9 +77,5 @@
 	{
 		courses = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json")).Where(c => c.Tag!="Kids").ToList();
 		Kids = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json")).Where(c => c.Tag == "Kids").ToList();		
-	}
-	private void CourseDetail(string Url)
-	{
-		NavigationManager.NavigateTo($"/coursedetail/{Url}", forceLoad:true);
 	}
 }
