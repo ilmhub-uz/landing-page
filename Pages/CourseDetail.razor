@@ -105,7 +105,7 @@ Page content START -->
 												<!-- Social button -->
 												<ul class="list-inline mb-3">
 													<li class="list-inline-item me-3">
-														<a href="@instructor.TwitterUrl" class="fs-5 text-twitter"><i class="fab fa-twitter"></i></a>
+														<a href="@instructor.GithubUrl" class="fs-5 text-github"><i class="fab fa-github"></i></a>
 													</li>
 													<li class="list-inline-item me-3">
 														<a href="@instructor.InstagramUrl" class="fs-5 text-instagram"><i class="fab fa-instagram"></i></a>
@@ -181,13 +181,13 @@ Page content START -->
 															{
 																<tr>
 																	<td>
-																		<a href="javascript:function() { return false; }" @onclick='()=>NavigateToCourse(courseItem.Title, string.Empty)'>
+																		<a href="/coursedetail/@courseItem.Title" onclick="ButtonClick('course-pills-tab-1')">
 																			<div class="d-flex align-items-center">
 																				<div class="w-100px w-md-60px">
 																					<img src="assets/images/courses/@courseItem.BannerId" class="rounded" alt="">
 																				</div>
 																				<h6 class="mb-0 ms-2">	
-																					<a @onclick='()=>NavigateToCourse(courseItem.Title, "")'>@courseItem.Title</a>
+																					@courseItem.Title
 																				</h6>
 																			</div>
 																		</a>
@@ -197,7 +197,7 @@ Page content START -->
 																		<span class="badge bg-primary bg-opacity-10 text-primary"><strong>@courseItem.CourseDuration</strong> oy</span>
 																	</td>
 																	<td class="text-center">
-																		<a @onclick='()=>NavigateToCourse(courseItem.Title, "register")' class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+																		<a href="/coursedetail/@courseItem.Title" onclick="ButtonClick('course-pills-tab-3')" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
 																	</td>
 																</tr>
 															}
@@ -368,6 +368,12 @@ Page content START -->
 	private StringBuilder tab = new StringBuilder("");
 	private StringBuilder time = new StringBuilder(DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy "));
 	private List<StringBuilder> tabs = new List<StringBuilder>(){new("active"), new(), new()};
+	protected override async Task OnParametersSetAsync()
+	{
+		tab = new("");   
+		await OnInitializedAsync();     
+	}
+
 	protected override async Task OnInitializedAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
@@ -403,11 +409,6 @@ Page content START -->
 	private void ChangeQueryTab(string active)
 	{
 		tab = new StringBuilder(active);
-	}
-
-	private void NavigateToCourse(string Url, string tab1)
-	{
-		NavigationManager.NavigateTo($"/coursedetail/{Url}?tab={tab1}", forceLoad:true);
 	}
 
 	private void GetPaginatedCourses(int page)

@@ -18,7 +18,7 @@ public class Instructor
 
     public string TelegramUrl { get; set; }
 
-    public string TwitterUrl { get; set; }
+    public string GithubUrl { get; set; }
 
     public int StudentCount { get; set; }
 
