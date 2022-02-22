@@ -1,0 +1,34 @@
+@inherits LayoutComponentBase
+
+<h5 class="mb-3">Kurs haqida</h5>
+<p class="mb-3"><strong>@course.Title</strong> kursiga xush kelibsiz!</p>
+<p class="mb-3">@course.Description</p>
+
+<!-- List content -->
+<h5 class="mt-4">Nimalarni o'rganasiz?</h5>
+<div class="row mb-3">
+    <div class="col-md-6">
+        <ul class="list-group list-group-borderless">
+            @for(int i = 0; i <course.Themes.Count - course.Themes.Count/2; i++)
+            {
+                <li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>@course.Themes[i]</li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <ul class="list-group list-group-borderless">
+            @for(int i = course.Themes.Count - course.Themes.Count/2; i < course.Themes.Count; i++)
+            {
+                <li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i> @course.Themes[i]</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<p class="mb-0">Bizga qo'shilishni istaysizmi? Unday bo'lsa <strong>@course.Title</strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!</p>
+
+@code{
+    [Parameter]
+    public Course course { get; set; }
+}

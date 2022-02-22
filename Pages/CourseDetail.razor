@@ -1,25 +1,10 @@
 @page "/coursedetail/{CourseTitle}"
 @using System.Globalization
+@using landing.Components.CourseDetail
 
 <main>
-<section class="bg-light py-0">
-	<div class="container">
-		<div class="row py-4">
-			<div class="col-lg-8">
-				<div class="col md-6">
-				<h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">@course.Tag</h6>
-				</div>
-				<!-- Title -->
-				<h2>@course.Title</h2>
-				
-			</div>
-		</div>
-	</div>
-</section>
-<!-- =======================
-Page intro END -->
-<!-- =======================
-Page content START -->
+<CourseDetailHeader course="@course"/>
+
 <section class="pb-0 py-lg-5">
 	<div class="container">
 		<div class="row">
@@ -52,103 +37,14 @@ Page content START -->
 							<!-- Content START -->
 							<div class="tab-pane @tabs[0].ToString()" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 								<!-- Course detail START -->
-								
-								<h5 class="mb-3">Kurs haqida</h5>
-								<p class="mb-3"><strong>@course.Title</strong> kursiga xush kelibsiz!</p>
-								<p class="mb-3">@course.Description</p>
-								
-								<!-- List content -->
-								<h5 class="mt-4">Nimalarni o'rganasiz?</h5>
-								<div class="row mb-3">
-									<div class="col-md-6">
-										<ul class="list-group list-group-borderless">
-											@for(int i = 0; i <course.Themes.Count - course.Themes.Count/2; i++)
-											{
-												<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i>@course.Themes[i]</li>
-											}
-										</ul>
-									</div>
-
-									<div class="col-md-6">
-										<ul class="list-group list-group-borderless">
-											@for(int i = course.Themes.Count - course.Themes.Count/2; i < course.Themes.Count; i++)
-											{
-												<li class="list-group-item h6 fw-light d-flex mb-0"><i class="fas fa-check-circle text-success me-2"></i> @course.Themes[i]</li>
-											}
-										</ul>
-									</div>
-								</div>
-
-								<p class="mb-0">Bizga qo'shilishni istaysizmi? Unday bo'lsa <strong>@course.Title</strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!</p>
+								<CourseOverview course="@course"/>
 								<!-- Course detail END -->
 							</div>
 							
 							<!-- Content START -->
 							<div class="tab-pane mx-4 @tabs[1].ToString()" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
 								<!-- Card START -->
-								<div class="card mb-0 ">
-									<div class="row g-0 align-items-center">
-										<div class="col-md-5 mb-4">
-											<!-- Image -->
-											<img src="/assets/images/avatar/@instructor.BannerId" class="img-fluid rounded-3" alt="instructor-image" >
-										</div>
-										<div class="col-md-7 mb-4">
-											<!-- Card body -->
-											<div class="card-body ">
-												<!-- Title -->
-												<h3 class="card-title mb-0 ">@instructor.InstructorName</h3>
-												<p class="mb-2">@instructor.MentorWorkPlace</p>
-												<!-- Social button -->
-												<ul class="list-inline mb-3">
-													<li class="list-inline-item me-3">
-														<a href="@instructor.GithubUrl" class="fs-5 text-github"><i class="fab fa-github"></i></a>
-													</li>
-													<li class="list-inline-item me-3">
-														<a href="@instructor.InstagramUrl" class="fs-5 text-instagram"><i class="fab fa-instagram"></i></a>
-													</li>
-													<li class="list-inline-item me-3">
-														<a href="@instructor.FacebookUrl" class="fs-5 text-facebook"><i class="fab fa-facebook"></i></a>
-													</li>
-													<li class="list-inline-item me-3">
-														<a href="@instructor.LinkedInUrl" class="fs-5 text-linkedin"><i class="fab fa-linkedin"></i></a>
-													</li>
-													<li class="list-inline-item">
-														<a href="@instructor.TelegramUrl" class="fs-5 text-telegram"><i class="fab fa-telegram"></i></a>
-													</li>
-												</ul>
-
-												<!-- Info -->
-												<ul class="list-inline">
-													<li class="list-inline-item">
-														<div class="d-flex align-items-center me-3 mb-2">
-															<span class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.StudentCount</strong>+ bitiruvchilar</span>
-														</div>
-													</li>
-													<li class="list-inline-item">
-														<div class="d-flex align-items-center me-3 mb-2">
-															<span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-play"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@courses.Count()</strong> Kurslar </span>
-														</div>
-													</li>
-													<li class="list-inline-item">
-														<div class="d-flex align-items-center me-3 mb-2">
-															<span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-star"></i></span>
-															<span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience</strong>+ yillik tajriba </span>
-														</div>
-													</li>
-												</ul>
-												<div class="d-flex align-items-center ">
-													<span class="icon-md text-dark mb-0 bg-light rounded-3"><i class="fas fa-graduation-cap"></i></span>
-													<div class="ms-3">
-														<h6 class="mb-0">@instructor.University</h6>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
+								<InstructorInfo instructor="@instructor" CoursesCount="@courses.Count().ToString()"/>
 								<!-- Another courses-->
 								<div class="row">
 									<div class="col-12">
@@ -225,126 +121,26 @@ Page content START -->
 								</div>
 							</div>
 							<div class="tab-pane @tabs[2].ToString()" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
-								<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
-								<div class="row g-3 mt-0">
-									<div class="col-md-6">
-										<img src="/assets/images/element/reg.png" style="background-color: blue;border-radius:7%;">
-									</div>
-										<div class="col-md-6 bg-light-input">
-											<form name="register-form" id="register-form" oninput="FormInputValidation()">
-													<label for="name" class="form-label">Ismingiz *</label>
-													<input type="text" name="Name" class="form-control" id="name" required>
-													<label for="phone" class="form-label mt-2">Telefon raqamingiz *</label><br>
-													<input type="tel" name="Phone" class="form-control" id="phone" onchange="PhoneValidation()"><br>
-													<label for="message" class="form-label mt-2">Xabar</label>
-													<input hidden name="Course" value="@course.Title" id="course">
-													<textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
-													<label for="CourseType" class="form-label mt-2">Kurs formati *</label>
-													<select class="form-select" name="Format" id="CourseType" required>
-														<option value="Offline">Offline</option>
-														<option value="Online">Online</option>
-													</select>
-													<input hidden value="@time.ToString()" name="Date">
-											</form>
-										</div>
-									<div class="text-center">
-										<button class="btn btn-lg btn-success mt-3 mb-0" disabled id="SendButton" onclick="Send_Data('@connection.RegisterConnection', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
-									</div>	
-									<div class="mt-3" id="form_alerts"></div>
-								</div>
+								<RegisterTab course="@course" connectionString="@connection.RegisterConnection"/>
 							</div>
 						</div>
 					</div>
 					<!-- Tab contents END -->
 				</div>
 			</div>
-			<!-- Main content END -->
 			<!-- Right sidebar START -->
 			<div class="col-lg-4 pt-5 pt-lg-0">
 				<div class="row mb-5 mb-lg-0">
 					<div class="col-md-6 col-lg-12">
 						<!-- Video START -->
-						<div class="card shadow p-2 mb-4 mb-4 z-index-9">
-							<div class="overflow-hidden rounded-3">
-								<img src="/assets/images/courses/@course.BannerId" class="card-img" alt="@course.BannerId">
-							</div>
-		
-							<!-- Card body -->
-							<div class="card-body px-3">
-								<!-- Info -->
-								
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="d-flex align-items-center">
-										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-chalkboard-teacher"></i></span><span class="fw-bold">&nbspOffline:</span>
-										<h5 class="fw-bold mb-0 mx-2">@course.CostInUzs.ToString("C0", format)</h5>
-									</div>
-									<div class="dropdown">
-										<!-- Share button -->
-										<a class="btn btn-sm btn-light rounded small" id="dropdownShare" data-bs-toggle="dropdown" >
-											<i class="fas fa-fw fa-share-alt"></i>
-										</a>
-										<!-- dropdown button -->
-										<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
-											<li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-											<li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
-											<li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tab.ToString()')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-											<li ><a class="dropdown-item" href="javascript:function() { return false; }" onclick="navigator.clipboard.writeText(window.location.href.toString()+'?tab=@tab.ToString()')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="d-flex justify-content-between align-items-center mt-1">
-									<div class="d-flex align-items-center">
-										<span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-globe"></i></span><span class="fw-bold">&nbspOnline:</span>
-										<h5 class="fw-bold mb-0 mx-2">@course.OnlineCourseCost.ToString("C0", format)</h5>
-									</div>
-									<div>
-										<span class="badge bg-orange text-white mb-0 " style="align-content: right;">-@Discount%</span>
-									</div>
-								</div>
-								
-							</div>
-						</div>
+						<ImageCourseInfo course="@course" tabName="@tab.ToString()"/>
 
-						<!-- Course info START -->
-						<div class="card card-body shadow p-4 mb-4">
-							<!-- Title -->
-							<ul class="list-group list-group-borderless">
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-book-open text-primary"></i>Kurs davomiyligi</span>
-									<span>@course.CourseDuration oy</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-calendar-week text-primary"></i>Haftadagi darslar soni</span>
-									<span>@course.WeekDuration</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-clock text-primary"></i>Dars davomiyligi </span>
-									<span>@course.ClassDuration soat</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-signal text-primary"></i>Daraja</span>
-									<span>@course.CourseLevel</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-globe text-primary"></i>Til</span>
-									<span>O'zbek</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-user-clock text-primary"></i>Deadline</span>
-									<span>@course.Deadline</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<span class="h6 fw-light mb-0"><i class="fas fa-fw fa-medal text-primary"></i>Sertifikat</span>
-									<span>Ha</span>
-								</li>
-							</ul>
-						</div>
-						<!-- Course info END -->
+						<CourseInfoCard Course = "@course"/>
 					</div>
-				</div><!-- Row End -->
+				</div>
 			</div>
 			<!-- Right sidebar END -->
-		</div><!-- Row END -->
+		</div>
 	</div>
 </section>
 </main>

@@ -1,0 +1,55 @@
+@using System.Globalization
+@inherits LayoutComponentBase
+
+@{
+    var format = CultureInfo.CreateSpecificCulture("uz-Latn-Uz").NumberFormat;
+    format.CurrencyPositivePattern = 3;
+}
+<div class="card shadow p-2 mb-4 mb-4 z-index-9">
+    <div class="overflow-hidden rounded-3">
+        <img src="/assets/images/courses/@course.BannerId" class="card-img" alt="@course.BannerId">
+    </div>
+
+    <!-- Card body -->
+    <div class="card-body px-3">
+        <!-- Info -->
+        
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-chalkboard-teacher"></i></span><span class="fw-bold">&nbspOffline:</span>
+                <h5 class="fw-bold mb-0 mx-2">@course.CostInUzs.ToString("C0", format)</h5>
+            </div>
+            <div class="dropdown">
+                <!-- Share button -->
+                <a class="btn btn-sm btn-light rounded small" id="dropdownShare" data-bs-toggle="dropdown" >
+                    <i class="fas fa-fw fa-share-alt"></i>
+                </a>
+                <!-- dropdown button -->
+                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
+                    <li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('https://t.me/share/url?url='+location.href.toString()+'?tab=@tabName.ToString()')"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+                    <li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('http://www.facebook.com/share.php?u='+location.href.toString()+'?tab=@tabName.ToString()')"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
+                    <li><a class="dropdown-item" href="javascript:function() { return false; }" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+location.href.toString()+'?tab=@tabName.ToString()')"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+                    <li ><a class="dropdown-item" href="javascript:function() { return false; }" onclick="navigator.clipboard.writeText(window.location.href.toString()+'?tab=@tabName.ToString()')"><i class="fas fa-copy me-2"></i>Copy link</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-1">
+            <div class="d-flex align-items-center">
+                <span class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-globe"></i></span><span class="fw-bold">&nbspOnline:</span>
+                <h5 class="fw-bold mb-0 mx-2">@course.OnlineCourseCost.ToString("C0", format)</h5>
+            </div>
+            <div>
+                <span class="badge bg-orange text-white mb-0 " style="align-content: right;">-@((byte)((1 - (double)course.OnlineCourseCost/(double)course.CostInUzs)*100))%</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public Course course { get; set; }
+
+    [Parameter]
+    public string tabName { get; set; }
+}

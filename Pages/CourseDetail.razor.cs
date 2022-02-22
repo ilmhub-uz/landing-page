@@ -19,28 +19,30 @@ public partial class CourseDetail
     public IJSRuntime jsRuntime { get; set; }
 	private Course course = new Course(){Themes=new()};
 	private Instructor instructor = new();
-	private static byte Discount = 0;
 	private static List<Course> courses = new();
 	private static List<Course> PaginatedCourses = new();
 	private Connection connection = new();
 	private int paginatedCount = 1;
 	private StringBuilder tab = new StringBuilder("");
-	private StringBuilder time = new StringBuilder(DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy "));
 	private List<StringBuilder> tabs = new List<StringBuilder>(){new("active"), new(), new()};
 
 	protected override async Task OnParametersSetAsync()
 	{
 		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.Title==CourseTitle).FirstOrDefault();
-		Discount = (byte)((1 - (double)course.OnlineCourseCost/(double)course.CostInUzs)*100);
+
 		courses = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
 			.Where(c => c.InstructorName == course.InstructorName && c.Title!=course.Title).ToList();
+
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
+
 		instructor = (await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json"))
 			.Where(c => c.InstructorName == course.InstructorName).FirstOrDefault();
 		PaginatedCourses = courses.Skip(0).Take(3).ToList();
+
 		await jsRuntime.InvokeVoidAsync("SetCountryCode");
         var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("tab", out var param))
         {
             tab = new StringBuilder(param);
