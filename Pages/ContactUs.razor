@@ -16,18 +16,18 @@
 				<p>O'zingizni qiziqtirgan savol va takliflaringiz yuzasidan, yoki shunchaki bu forma ishlashini
 					tekshirib ko'rish uchun bizga habar qoldiring 🙃</p>
 				
-				<form name="contact-form" id="contact-form" oninput="FormInputValidation()" >
+				<form name="contact-form" id="contact-form" >
 					<div class=" mb-4 bg-light-input" >
 						<label for="name" class="form-label">Ismingiz *</label>
-						<input type="text" name="Name" class="form-control form-control-lg" id="name" >
+						<input type="text" name="Name" class="form-control form-control-lg is-invalid" id="name" oninput="FormInputValidation('name')">
 					</div>
 					<div class="mb-4 bg-light-input">
 						<label for="phone" class="form-label">Telefon raqamingiz *</label>
-						<p><input type="tel" name="Phone" class="form-control form-control-lg" onchange="PhoneValidation()" id="phone"></p>
+						<p><input type="tel" name="Phone" class="form-control form-control-lg is-invalid" oninput="FormInputValidation('phone')" id="phone"></p>
 					</div>
 					<div class="mb-4 bg-light-input">
 						<label for="message" class="form-label">Habar *</label>
-						<textarea class="form-control" name="Message" id="message" rows="4" ></textarea>
+						<textarea class="form-control is-invalid" name="Message" id="message" oninput="FormInputValidation('message')" rows="4" ></textarea>
 					</div>
 					<input hidden value="@(DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy "))" name="Date">
 					<div class="d-grid">

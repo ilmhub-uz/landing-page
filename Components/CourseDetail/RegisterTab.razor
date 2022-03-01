@@ -6,16 +6,17 @@
         <img src="/assets/images/element/reg.png" style="background-color: blue;border-radius:7%;">
     </div>
         <div class="col-md-6 bg-light-input">
-            <form name="register-form" id="register-form" oninput="FormInputValidation()">
+            <form name="register-form" id="register-form" >
                     <label for="name" class="form-label">Ismingiz *</label>
-                    <input type="text" name="Name" class="form-control" id="name" required>
+                    <input type="text" name="Name" class="form-control is-invalid" id="name" oninput="FormInputValidation('name')">
                     <label for="phone" class="form-label mt-2">Telefon raqamingiz *</label><br>
-                    <input type="tel" name="Phone" class="form-control" id="phone" onchange="PhoneValidation()"><br>
+                    <input type="tel" name="Phone" class="form-control is-invalid" id="phone" oninput="FormInputValidation('phone')"><br>
+                    <input id="ph" hidden>
                     <label for="message" class="form-label mt-2">Xabar</label>
                     <input hidden name="Course" value="@course.Title" id="course">
-                    <textarea type="text" name="Message" rows="4" class="form-control" id="message"></textarea>
+                    <textarea type="text" name="Message" rows="4" class="form-control is-invalid" id="message" oninput="FormInputValidation('message')"></textarea>
                     <label for="CourseType" class="form-label mt-2">Kurs formati *</label>
-                    <select class="form-select" name="Format" id="CourseType" required>
+                    <select class="form-select" name="Format" id="CourseType">
                         <option value="Offline">Offline</option>
                         <option value="Online">Online</option>
                     </select>
