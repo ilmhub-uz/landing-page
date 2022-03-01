@@ -23,4 +23,8 @@ public class Instructor
     public int StudentCount { get; set; }
 
     public string BannerId { get; set; }
+
+    public string Bio { get; set; }
+    
+    public string Major { get; set; }
 }

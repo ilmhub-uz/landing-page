@@ -36,7 +36,7 @@
         "TelegramUrl": "#",
         "GithubUrl": "#",
         "StudentCount": 250,
-        "BannerId": "02.jpg"
+        "BannerId": "03.jpg"
     },
     {
         "InstructorName": "Kilichbek Haydarov",
@@ -49,6 +49,32 @@
         "TelegramUrl": "#",
         "GithubUrl": "#",
         "StudentCount": 250,
+        "BannerId": "04.jpg"
+    },
+    {
+        "InstructorName": "Shahboz Khurramov",
+        "University": "Inha Universiteti",
+        "Experience": 1,
+        "MentorWorkPlace": "Ilmhub",
+        "InstagramUrl": "#",
+        "FacebookUrl": "#",
+        "LinkedInUrl": "#",
+        "TelegramUrl": "#",
+        "GithubUrl": "#",
+        "StudentCount": 0,
+        "BannerId": "04.jpg"
+    },
+    {
+        "InstructorName": "Muhammadjon Muydinjonov",
+        "University": "Mdis",
+        "Experience": 1,
+        "MentorWorkPlace": "Ilmhub",
+        "InstagramUrl": "#",
+        "FacebookUrl": "#",
+        "LinkedInUrl": "#",
+        "TelegramUrl": "#",
+        "GithubUrl": "#",
+        "StudentCount": 0,
         "BannerId": "04.jpg"
     }
 ]

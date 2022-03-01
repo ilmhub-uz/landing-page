@@ -1,0 +1,83 @@
+@page "/ourteam"
+@inject HttpClient Http
+
+<section class="py-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="bg-primary p-4 text-center rounded-3">
+					<h1 class="text-white m-0">Ilmhub jamoasi</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="pt-4">
+	<div class="container">
+		<!-- Instructor list START -->
+		<div class="row g-4 justify-content-center">
+
+			<!-- Card item START -->
+            @foreach (var instructor in instrucotrs)
+            {
+			<div class="col-lg-10 col-xl-6">
+				<div class="card shadow p-2">
+					<div class="row g-0">
+						<!-- Image -->
+						<div class="col-md-4">
+							<img src="https://avatars.dicebear.com/api/avataaars/@(new Random().Next(10000)).svg?b=%235522" class="rounded-3" alt="Ilmhub">
+						</div>
+
+						<!-- Card body -->
+						<div class="col-md-8">
+							<div class="card-body">
+								<!-- Title -->
+								<div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
+									<div>
+										<h5 class="card-title mb-0"><a>@instructor.InstructorName</a></h5>
+										<p class="small mb-2 mb-sm-0">@instructor.MentorWorkPlace</p>
+									</div>
+								</div>
+								<!-- Content -->
+								<p class="text-truncate-2 mb-3">Xalqim uchun jonim fido vatanim uchun jonim fido. Biz kutgandik biz bilgandik</p>
+								<!-- Info -->
+								<div class="d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Title -->
+									<h6 class="text-orange mb-0">Programming</h6>
+
+									<!-- Social button -->
+									<ul class="list-inline mb-0 mt-3 mt-sm-0">
+										<li class="list-inline-item"> 
+											<a class="mb-0 me-1 text-facebook" href="@instructor.FacebookUrl"><i class="fab fa-fw fa-facebook-f"></i></a> 
+										</li>
+										<li class="list-inline-item"> 
+											<a class="mb-0 me-1 text-instagram-gradient" href="@instructor.InstagramUrl"><i class="fab fa-fw fa-instagram"></i></a> 
+										</li>
+										<li class="list-inline-item"> 
+											<a class="mb-0 me-1 text-twitter" href="@instructor.TelegramUrl"><i class="fab fa-fw fa-telegram"></i></a> 
+										</li>
+										<li class="list-inline-item"> 
+											<a class="mb-0 text-linkedin" href="@instructor.LinkedInUrl"><i class="fab fa-fw fa-linkedin-in"></i></a> 
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            }
+            <!--end-->
+        </div>
+	</div>
+</section>
+
+@code{
+    public List<Instructor> instrucotrs = new();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        instrucotrs = await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json");
+    }
+}
