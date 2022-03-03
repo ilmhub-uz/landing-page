@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <!-- <Nullable>enable</Nullable> -->
     <ImplicitUsings>enable</ImplicitUsings>
+    <RunAOTCompilation Condition="'$(IsSecondPass)'!='True'">true</RunAOTCompilation>
   </PropertyGroup>
 
   <ItemGroup>
