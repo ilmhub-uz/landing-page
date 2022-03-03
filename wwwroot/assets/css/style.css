@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@media only screen and (min-width:600px){
+  .hide-on-desktop{
+    display: none;
+    visibility: hidden;
+  }
+}
 .center {
   margin-top: 25vh;
   display: block;
@@ -17592,8 +17598,9 @@ textarea.form-control-lg {
   z-index: 2;
 }
 
-.card-hover-border:hover {
-  border: 1px solid #dde0e3;
+.card-hover:hover{
+  transform: scale(1.05);
+  transition: .3s;
 }
 
 .card .card-element-hover {
