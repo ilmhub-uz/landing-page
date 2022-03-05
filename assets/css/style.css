@@ -5,6 +5,11 @@
     visibility: hidden;
   }
 }
+@media only screen and (max-width:450px){
+  .bottom-on-mobile{
+    margin-bottom: 0.5cm;
+  }
+}
 .center {
   margin-top: 25vh;
   display: block;
