@@ -1,12 +1,12 @@
 @page "/ourteam"
 @inject HttpClient Http
-
+@inject ILanguageContainerService languageContainer
 <section class="py-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<div class="bg-primary p-4 text-center rounded-3">
-					<h1 class="text-white m-0">Ilmhub jamoasi</h1>
+					<h1 class="text-white m-0">@languageContainer.Keys["OurTeam:Title"]</h1>
 				</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 											<a class="mb-0 me-1 text-facebook" target="_blank" rel="noopener noreferrer" href="https://facebook.com/@instructor.FacebookUrl"><i class="fab fa-fw fa-facebook-f"></i></a> 
 										</li>
 										<li class="list-inline-item"> 
-											<a class="mb-0 me-1 text-instagram-gradient" target="_blank" rel="noopener noreferrer" href="https://instagram.com/@instructor.InstagramUrl"><i class="fab fa-fw fa-instagram"></i></a> 
+											<a class="mb-0 me-1 text-instagram" target="_blank" rel="noopener noreferrer" href="https://instagram.com/@instructor.InstagramUrl"><i class="fab fa-fw fa-instagram"></i></a> 
 										</li>
 										<li class="list-inline-item"> 
 											<a class="mb-0 me-1 text-twitter" target="_blank" rel="noopener noreferrer" href="https://t.me/@instructor.TelegramUrl"><i class="fab fa-fw fa-telegram"></i></a> 
@@ -83,4 +83,9 @@
     {
         instrucotrs = await Http.GetFromJsonAsync<List<Instructor>>("data/instructors.json");
     }
+	protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
 }

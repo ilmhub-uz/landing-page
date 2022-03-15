@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Components;
 using landing.Models;
 using System.Net.Http.Json;
 using Microsoft.JSInterop;
+using AKSoftware.Localization.MultiLanguages.Blazor;
+using System.Globalization;
+using Blazored.LocalStorage;
 
 namespace landing.Pages;
 
@@ -17,6 +20,9 @@ public partial class CourseDetail
     public NavigationManager NavigationManager { get; set; }
     [Inject]
     public IJSRuntime jsRuntime { get; set; }
+	[Inject]
+    public ILocalStorageService localStorage { get; set; }
+	
 	private Course course = new Course(){Themes=new()};
 	private Instructor instructor = new();
 	private static List<Course> courses = new();
@@ -26,12 +32,30 @@ public partial class CourseDetail
 	private StringBuilder tab = new StringBuilder("");
 	private List<StringBuilder> tabs = new List<StringBuilder>(){new("active"), new(), new()};
 
+	protected override async Task OnInitializedAsync()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        await base.OnInitializedAsync();
+		await OnParametersSetAsync();
+	}
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		var courseLanguage = (new CultureInfo((await localStorage.GetItemAsync<string>("culture"))??"uz-UZ")).TwoLetterISOLanguageName;
+		course = (await Http.GetFromJsonAsync<List<Course>>($"data/courses.{courseLanguage}.json"))
+			.FirstOrDefault(c => c.Title==CourseTitle);
+		
+		courses = (await Http.GetFromJsonAsync<List<Course>>($"data/courses.{courseLanguage}.json"))
+			.Where(c => c.InstructorName == course.InstructorName && c.Title!=course.Title).ToList();
+		StateHasChanged();
+	}
+
 	protected override async Task OnParametersSetAsync()
 	{
-		course = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
-			.Where(c => c.Title==CourseTitle).FirstOrDefault();
+		var courseLanguage = (new CultureInfo((await localStorage.GetItemAsync<string>("culture"))??"uz-UZ")).TwoLetterISOLanguageName;
+		course = (await Http.GetFromJsonAsync<List<Course>>($"data/courses.{courseLanguage}.json"))
+			.FirstOrDefault(c => c.Title==CourseTitle);
 
-		courses = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json"))
+		courses = (await Http.GetFromJsonAsync<List<Course>>($"data/courses.{courseLanguage}.json"))
 			.Where(c => c.InstructorName == course.InstructorName && c.Title!=course.Title).ToList();
 
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");

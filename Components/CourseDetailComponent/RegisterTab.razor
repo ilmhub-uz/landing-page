@@ -1,21 +1,22 @@
 @inherits LayoutComponentBase
-
-<p class="fw-bold">Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.</p>
+@inject ILanguageContainerService languageContainer
+@using System.Globalization;
+<p class="fw-bold">@languageContainer.Keys["CourseDetail:OperatorsCall"]</p>
 <div class="row g-3 mt-0">
     <div class="col-md-6">
         <img src="assets/images/element/reg.png" style="background-color: rgba(112, 195, 255, .5);border-radius:7%;">
     </div>
         <div class="col-md-6 bg-light-input">
             <form name="register-form" id="register-form" >
-                    <label for="name" class="form-label">Ismingiz *</label>
+                    <label for="name" class="form-label">@languageContainer.Keys["Form:FirstName"]</label>
                     <input type="text" name="Name" class="form-control is-invalid" id="name" oninput="FormInputValidation('name')">
-                    <label for="phone" class="form-label mt-2">Telefon raqamingiz *</label><br>
+                    <label for="phone" class="form-label mt-2">@languageContainer.Keys["Form:Phone"]</label><br>
                     <input type="tel" name="Phone" class="form-control is-invalid" id="phone" oninput="FormInputValidation('phone')"><br>
                     <input id="ph" hidden>
-                    <label for="message" class="form-label mt-2">Xabar</label>
+                    <label for="message" class="form-label mt-2">@languageContainer.Keys["Form:Message"]</label>
                     <input hidden name="Course" value="@course.Title" id="course">
                     <textarea type="text" name="Message" rows="4" class="form-control is-invalid" id="message" oninput="FormInputValidation('message')"></textarea>
-                    <label for="CourseType" class="form-label mt-2">Kurs formati *</label>
+                    <label for="CourseType" class="form-label mt-2">@languageContainer.Keys["Form:Format"]</label>
                     <select class="form-select" name="Format" id="CourseType">
                         <option value="Offline">Offline</option>
                         <option value="Online">Online</option>
@@ -24,7 +25,7 @@
             </form>
         </div>
     <div class="text-center">
-        <button class="btn btn-lg btn-success mt-3 mb-0" disabled id="SendButton" onclick="Send_Data('@connectionString', 'register-form')" type="submit">Ro'yxatdan o'tish</button>
+        <button class="btn btn-lg btn-success mt-3 mb-0" disabled id="SendButton" onclick="Send_Data('@connectionString', 'register-form')" type="submit">@languageContainer.Keys["Form:Register"]</button>
     </div>	
     <div class="mt-3" id="form_alerts"></div>
 </div>
@@ -34,4 +35,9 @@
     public Course course { get; set; }
     [Parameter] 
     public string connectionString { get; set; }
+    protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
 }

@@ -1,0 +1,42 @@
+@inherits LayoutComponentBase
+@inject ILanguageContainerService languageContainer
+<div class="card card-body shadow p-4 mb-4">
+    <ul class="list-group list-group-borderless">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="h6 fw-light mb-0"><i class="fas fa-fw fa-book-open text-primary"></i>@languageContainer.Keys["CourseDetail:Duration"]</span>
+            <span>@course.CourseDuration</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="h6 fw-light mb-0"><i class="fas fa-fw fa-calendar-week text-primary"></i>@languageContainer.Keys["CourseDetail:WeekDuration"]</span>
+            <span>@course.WeekDuration</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="h6 fw-light mb-0"><i class="fas fa-fw fa-clock text-primary"></i>@languageContainer.Keys["CourseDetail:ClassDuration"]</span>
+            <span>@course.ClassDuration</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="h6 fw-light mb-0"><i class="fas fa-fw fa-signal text-primary"></i>@languageContainer.Keys["CourseDetail:Level"]</span>
+            <span>@course.CourseLevel</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="h6 fw-light mb-0"><i class="fas fa-fw fa-globe text-primary"></i>@languageContainer.Keys["CommonWords:Language"]</span>
+            <span>@course.Language</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="h6 fw-light mb-0"><i class="fas fa-fw fa-user-clock text-primary"></i>@languageContainer.Keys["CourseDetail:Deadline"]</span>
+            <span>@course.Deadline</span>
+        </li>
+    </ul>
+</div>
+<div class="text-center">
+    <a class="hide-on-desktop btn btn-primary" onclick="ButtonClick('course-pills-tab-3')" href="/coursedetail/@course.Title#course-pills-tab-3">@languageContainer.Keys["Form:Register"]</a>
+</div>
+@code{
+    [Parameter]
+    public Course course { get; set; }   
+    protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
+}

@@ -1,4 +1,5 @@
 @inherits LayoutComponentBase
+@inject ILanguageContainerService languageContainer
 <section class="bg-light">
 	<div class="container">
 		<div class="row g-4 g-lg-5 align-items-center">
@@ -22,7 +23,7 @@
 							<blockquote>
 								<p>
 									<span class="me-1 small"><i class="fas fa-quote-left"></i></span>
-										Alloh bergan ilmni yuzidagi tabassumi ila yoshlarga ulashib charchamaydigan, algoritm bo'yicha sevimli ustozim🙂. Kelgusida qilmoqchi bo'lgan har bir ishingiz xayrli bo'lsin
+										@languageContainer.Keys["CommentsComponent:FirstComment"]
 									<span class="ms-1 small"><i class="fas fa-quote-right"></i></span>
 								</p>
 							</blockquote>
@@ -47,7 +48,7 @@
 								<i class="bi bi-shield-fill-check text-dark"></i>
 							</div>
 							<!-- Title -->
-							<h6 class="mb-3">10+ Malakali Ustozlar</h6>
+							<h6 class="mb-3">10+ @languageContainer.Keys["CommentsComponent:ExperiencedMentors"]</h6>
 							<!-- Mentor Item -->
 							<div class="d-flex align-items-center mb-3">
 								<!-- Avatar -->
@@ -155,7 +156,7 @@
 								<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
 								<li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
 							</ul>
-							<p class="text-white mb-0">561 ta reytingga asoslangan holda</p>
+							<p class="text-white mb-0">@languageContainer.Keys["CommentsComponent:Rating"]</p>
 						</div>
 					</div>
 
@@ -170,7 +171,7 @@
 							<blockquote>
 								<p>
 									<span class="me-1 small"><i class="fas fa-quote-left"></i></span> 
-										Menga talabchan ustozlar kerak edi, chunki meni kimdir doim o'qishga undab turmasa o'qimas edim. Bu o'quv markaziga kelib, men qidirgan ustozlarni topdim.
+										@languageContainer.Keys["CommentsComponent:SecondComment"]
 									<span class="ms-1 small"><i class="fas fa-quote-right"></i></span>
 								</p>
 							</blockquote>
@@ -190,9 +191,16 @@
 			</div>
 			<div class="col-xl-5 order-1 text-center text-xl-start">
 				<!-- Title -->
-				<h1 class="fs-3">O'quvchilarimiz fikrlari</h1>
-				<p>.NET bootcamp menga dasturlash sohasida junior darajaga chiqishimda juda katta yordam berdi, chunki oz vaqt davomida ko'p narsalarni sifatli tarzda o'rgatishdi. Darslar 5/7 bo'lgani uchun, kunimni 70% qismi markazdagi co-workingda boshqa do'stlarim bilan o'tdi. Bu orqali ham dasturlashni, ham networkingni o'rgandim.</p>
+				<h1 class="fs-3">@languageContainer.Keys["CommentsComponent:StudentsOpinions"]</h1>
+				<p>@languageContainer.Keys["CommentsComponent:ThirdComment"]</p>
 			</div>
 		</div> <!-- Row END -->
 	</div>
 </section>
+@code{
+	protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
+}

@@ -14,11 +14,11 @@ public class Course
 
     public int OnlineCourseCost { get; set; }
     
-    public float CourseDuration { get; set; }
+    public string CourseDuration { get; set; }
 
     public byte WeekDuration { get; set; }
 
-    public float ClassDuration { get; set; }
+    public string ClassDuration { get; set; }
     
     public string InstructorName { get; set; }
 
@@ -30,5 +30,5 @@ public class Course
     
     public string Deadline { get; set; }
     
-    
+    public string Language { get; set; }
 }

@@ -6,46 +6,49 @@
         "Score": 4.5,
         "CostInUzs": 790000,
         "OnlineCourseCost": 490000,
-        "CourseDuration": 4,
-        "WeekDuration": 3,
-        "ClassDuration": 2,
+        "CourseDuration": "4 months",
+        "WeekDuration": "3",
+        "ClassDuration": "2 soat",
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "programming.png",
         "Themes": ["Zamonaviy kompyuter savodxonligi", "Tez typing qilish", "ijtimoiy tarmoqlarda professonal account yuritish", "Linux OS", "Linux terminalda ishlash", "VSCode kod taxrirlash dasturi va uning extensionlar", "C++ dasturlash tili", "Basics, OOP", "Qidiruv algoritmlar", "Sorting algoritmlar", "Data strukturlar (Linked List, Queue, Stack)", "Github"],
         "CourseLevel": "Boshlang'ich",
-        "Deadline": "1 Mart 2022"
+        "Deadline": "1 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": ".NET Bootcamp",
         "Description": ".NET freymvorkidan dasturlashning ko'plab sohalarida, masalan — mobil, frontend, backend va boshqalarda foydalaniladi. Odatda, IT kompaniyalarida  bu imkoniyatlarning barchasi ishlatiladi va katta dasturchi bo'lish, boshqa dasturchilarni boshqarish uchun ushbu sohalarning hammasidan xabardor bo'lish shart. Shuning uchun, ushbu kurs dasturlash asoslarini tushunadigan, .NET freymvorkining barcha imkoniyatlaridan to'liq foydalana olishni, o'zini IT kompaniyalarida loyiha menejeri, team-lead sifatida ko'rishni istaydigan o'quvchilar uchun ajoyib boshlash bo'ladi. Kursga imtihon asosida qabul qilinadi va kurs so'ngida maxsus sertifikatlar taqdim etiladi. .NET freymvorkida ishlashda c# dasturlash tilidan foydalaniladi. Dastlab, o'quvchilar oldin o'zlari o'rgangan dasturlash tilida mavjud bo'lgan va deyarli barcha tillarda bir xil tamoyil asosida ishlaydigan o'zgaruvchi, string, shart va sikl operatorlari, array, list, queue, stack kabi tushunchalarning c# tilida qanday tadbiq etilishini o'rganadilar, ularni mustahkamlash uchun masalalar ishlaydilar.",
         "Tag": "Bootcamp",
         "Score": 5.0,
-        "CostInUzs": "2190000",
-        "OnlineCourseCost":"1590000",
-        "CourseDuration": 7,
+        "CostInUzs": 2190000,
+        "OnlineCourseCost": 1590000,
+        "CourseDuration": "7 oy",
         "WeekDuration": 5,
-        "ClassDuration": 4,
+        "ClassDuration": "4 soat",
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "netbootcamp.png",
         "Themes": ["C# asoslari", "OOP", "Asp.Net", " Web, WebApi", "Rest tamoyili", "Api orqali ma'lumot bilan ishlash", "Dizayn tamoyillari(SOLID, KISS, YAGNI)", "Ma'lumotlar bilan ishlash", "Entity Framework Core", " Authentication va Authorization", "Mvc asoslari", "Frontend qurollari", "Sayt xavfsizligi", "Blazor wasm(eventlar, komponentlar, HttpClient)","Blazor Server", "Xamarin", "Xaml", "Navigation, MVVM"],
         "CourseLevel": "O'rta",
-        "Deadline": "1 Mart 2022"
+        "Deadline": "1 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": ".NET Backend",
         "Description": "Ushbu kurs dasturlash sohasida boshlang'ich bilimlarga ega bo'lgan yoki bizning markazimizda Foundation kursini tamomlagan, o'zini kuchli backend dasturchi sifatida ko'rishni istayotgan o'quvchilar uchun mos keladi. Barcha o'quvchilar bu kursga imtihon asosida qabul qilinadi. Kursni tamomlagan o'quvchilarga maxsus sertifikatlar taqdim etiladi. .NET freymvorkida ishlashda c# dasturlash tilidan foydalaniladi. Dastlab, o'quvchilar oldin o'zlari o'rgangan dasturlash tilida mavjud bo'lgan va deyarli barcha tillarda bir xil tamoyil asosida ishlaydigan o'zgaruvchi, string, shart va sikl operatorlari, array, list, queue, stack kabi tushunchalarning c# tilida qanday tadbiq etilishini o'rganadilar, ularni mustahkamlash uchun masalalar ishlaydilar.",
         "Tag": "Backend",
         "Score": "4.5",
-        "CostInUzs": "1190000",
-        "OnlineCourseCost": "790000",
-        "CourseDuration": 5,
+        "CostInUzs": 1190000,
+        "OnlineCourseCost": 790000,
+        "CourseDuration": "5 oy",
         "WeekDuration": 3,
-        "ClassDuration": 2,
+        "ClassDuration": "2 soat",
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "backenddotnet.png",
         "Themes": ["C# asoslari", "OOP", "Asp.Net", " Web, WebApi", "Rest tamoyili", "Api orqali ma'lumot bilan ishlash", "Dizayn tamoyillari(SOLID, KISS, YAGNI)", "Ma'lumotlar bilan ishlash", "Entity Framework Core", " Authentication va Authorization","Api kalitlari bilan ishlash", "IdentityServer4",  "Mvc asoslari", "HttpClient"],
         "CourseLevel": "O'rta",
-        "Deadline": "1 Mart 2022"
+        "Deadline": "1 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "AI Bootcamp",
@@ -54,14 +57,15 @@
         "Score": "4.5",
         "CostInUzs": "1190000",
         "OnlineCourseCost": "790000",
-        "CourseDuration": 7,
+        "CourseDuration": "7 oy",
         "WeekDuration": 3,
-        "ClassDuration": 2,
+        "ClassDuration": "2 soat",
         "InstructorName": "Kilichbek Haydarov",
         "BannerId": "AIB.png",
         "Themes": ["Python asoslari", "Chiziqli algebra", "Matritsalar", "Differensial hisoblash", "Machine learningga kirish", "Perseptronlar", "Xususiyatlar", "Marjani maksimallashtirish", "Regressiya", "Neyron tarmoqlar", "Konvolyutsion neyron tarmoqlari", "Markov qaror jarayonlari",  "Reinforcement learning", "Rekurrent neyron tarmoqlari", "Tavsiyalar tizimi", "Decision Trees va Nearest Neighbors"],
         "CourseLevel": "Yuqori",
-        "Deadline": "1 Mart 2022"
+        "Deadline": "1 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "Flutter Cross-platform",
@@ -70,14 +74,15 @@
         "Score": "4.5",
         "CostInUzs": "1190000",
         "OnlineCourseCost": "790000",
-        "CourseDuration": 5,
+        "CourseDuration": "5 oy",
         "WeekDuration": 3,
-        "ClassDuration": 2,
+        "ClassDuration": "2 soat",
         "InstructorName": "Mukhriddin Dev",
         "BannerId": "fluttermob.png",
         "Themes": ["Zamonaviy kompyuter savodxonligi"],
         "CourseLevel": "O'rta",
-        "Deadline": "12 Mart 2022"
+        "Deadline": "12 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "Python Beginner",
@@ -86,14 +91,15 @@
         "Score": "4.5",
         "CostInUzs": "490000",
         "OnlineCourseCost": "290000",
-        "CourseDuration": 2,
+        "CourseDuration": "2 oy",
         "WeekDuration": 3,
-        "ClassDuration": 1.5,
+        "ClassDuration": "1.5 soat",
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "Python.png",
         "Themes": ["Basics(Variable/Types/Operators)","Conditionals","Loops","Functions","Data structures(List, Dictionary, Tuple, Set)","Mantiqiy savol-javoblar","Jamoaviy topshiriqlar"],
         "CourseLevel": "Boshlang'ich",
-        "Deadline": "25 Fevral 2022"
+        "Deadline": "25 Fevral 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "Arduino & Robototexnika",
@@ -102,14 +108,15 @@
         "Score": "4.5",
         "CostInUzs": "490000",
         "OnlineCourseCost": "290000",
-        "CourseDuration": 2,
+        "CourseDuration": "2 oy",
         "WeekDuration": 3,
-        "ClassDuration": 1.5,
+        "ClassDuration": "1.5 soat",
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "Arduino.png",
         "Themes": ["Arduino qurilmasi bilan tanishish","LED lamapalar bilan ishlash","Turli hil kattalikdagi TOK lar bilan ishlash","Sensorlar, kichik matorlar va joystick bilan ishlash","Fast typing","Prezentatsiya qilish qobilyati"],
         "CourseLevel": "Boshlang'ich",
-        "Deadline": "1 Mart 2022"
+        "Deadline": "1 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "Scratch",
@@ -118,14 +125,15 @@
         "Score": "4.0",
         "CostInUzs": "490000",
         "OnlineCourseCost": "290000",
-        "CourseDuration": 2,
+        "CourseDuration": "2 oy",
         "WeekDuration": 3,
-        "ClassDuration": 1.5,
+        "ClassDuration": "1.5 soat",
         "InstructorName": "Davron Abduhakimov",
         "BannerId": "Scratch.png",
         "Themes": ["animatsiyalar","multfilmlar","kichik o'yinlar","fast typing","prezentatsiya"],
         "CourseLevel": "Boshlang'ich",
-        "Deadline": "3 Mart 2022"
+        "Deadline": "3 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "React Native",
@@ -134,14 +142,15 @@
         "Score": "4.0",
         "CostInUzs": "790000",
         "OnlineCourseCost": "490000",
-        "CourseDuration": 4,
+        "CourseDuration": "4 oy",
         "WeekDuration": 3,
-        "ClassDuration": 2,
+        "ClassDuration": "2 soat",
         "InstructorName": "Davron Abduhakimov",
         "BannerId": "React.png",
         "Themes": ["React"],
         "CourseLevel": "O'rta",
-        "Deadline": "1 Mart 2022"
+        "Deadline": "1 Mart 2022",
+        "Language": "O'zbek"
     },
     {
         "Title": "iOS Mobile (Swift)",
@@ -150,14 +159,15 @@
         "Score": "4.5",
         "CostInUzs": "1190000",
         "OnlineCourseCost": "790000",
-        "CourseDuration": 5,
+        "CourseDuration": "5 oy",
         "WeekDuration": 3,
-        "ClassDuration": 2,
+        "ClassDuration": "2 soat",
         "InstructorName": "Wahid Abduhakimov",
         "BannerId": "SwiftUI.png",
         "Themes": ["Zamonaviy kompyuter savodxonligi"],
         "CourseLevel": "O'rta",
-        "Deadline": "1 Aprel 2022"
+        "Deadline": "1 Aprel 2022",
+        "Language": "O'zbek"
     }
 
 ]
