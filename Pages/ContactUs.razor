@@ -1,38 +1,40 @@
 @page "/contactus"
-@using landing.Components.ContactDetails
+@using landing.Components.ContactUsComponent
 @inject HttpClient Http
 @inject IJSRuntime JS
+@inject ILanguageContainerService languageContainer
 <section >
 	<div class="container">
 		<div class="row g-4 g-lg-0 align-items-center">
 			<div class="col-md-6 align-items-center text-center">
 				<img src="assets/images/element/contact.png" class="h-600px" alt="">
-				<SocialMediaButtons />
+				<div class="d-sm-flex align-items-center justify-content-center mt-2 mt-sm-4">
+					<h5 class="mb-0">@languageContainer.Keys["ContactUs:JoinUs"]:</h5> 
+					<SocialMediaButtons/>
+				</div>
 			</div>
 			
 			<div class="col-md-6">
 				<!-- Title -->
-				<h2 class="mt-4 mt-md-0">Keling tanishamiz</h2>
-				<p>O'zingizni qiziqtirgan savol va takliflaringiz yuzasidan, yoki shunchaki bu forma ishlashini
-					tekshirib ko'rish uchun bizga habar qoldiring 🙃</p>
+				<h2 class="mt-4 mt-md-0">@languageContainer.Keys["ContactUs:GetAcquainted"]</h2>
+				<p>@languageContainer.Keys["ContactUs:LeaveMessageInfo"] 🙃</p>
 				
 				<form name="contact-form" id="contact-form" >
 					<div class=" mb-4 bg-light-input" >
-						<label for="name" class="form-label">Ismingiz *</label>
+						<label for="name" class="form-label">@languageContainer.Keys["Form:FirstName"]</label>
 						<input type="text" name="Name" class="form-control form-control-lg is-invalid" id="name" oninput="FormInputValidation('name')">
 					</div>
 					<div class="mb-4 bg-light-input">
-						<label for="phone" class="form-label">Telefon raqamingiz *</label>
+						<label for="phone" class="form-label">@languageContainer.Keys["Form:Phone"]</label>
 						<p><input type="tel" name="Phone" class="form-control form-control-lg is-invalid" oninput="FormInputValidation('phone')" id="phone"></p>
 					</div>
 					<div class="mb-4 bg-light-input">
-						<label for="message" class="form-label">Habar *</label>
+						<label for="message" class="form-label">@languageContainer.Keys["Form:Message"]</label>
 						<textarea class="form-control is-invalid" name="Message" id="message" oninput="FormInputValidation('message')" rows="4" ></textarea>
 					</div>
 					<input hidden value="@(DateTime.Now.ToString("ddd, dd MMM, HH':'mm, yyyy "))" name="Date">
 					<div class="d-grid">
-						<button class="btn btn-lg btn-primary mb-0" disabled id="SendButton" type="submit" onclick="Send_Data('@connection.ContactConnection', 'contact-form')">Habar
-							qoldirish</button>
+						<button class="btn btn-lg btn-primary mb-0" disabled id="SendButton" type="submit" onclick="Send_Data('@connection.ContactConnection', 'contact-form')">@languageContainer.Keys["ContactUs:SendMessage"]</button>
 					</div>
 					<div class="mt-3" id="form_alerts"></div>
 				</form>
@@ -48,5 +50,7 @@
 	{
 		connection = await Http.GetFromJsonAsync<Connection>("credential.json");
 		await JS.InvokeVoidAsync("SetCountryCode");
+		languageContainer.InitLocalizedComponent(this);
+        await base.OnInitializedAsync();
 	}
 }

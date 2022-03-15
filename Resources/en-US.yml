@@ -1,0 +1,88 @@
+Header:
+  Courses: Courses
+  Projects: Projects
+  OurTeam: Our team
+  Contact: Contact us
+
+OurTeam:
+  Title: Ilmhub team
+
+Footer:
+  IlmhubDefinition: <strong>ilm</strong> and <strong>hub</strong> so'zlarini birlashmasi bo'lib, u ilm taqaladigan va ilmlilar uchrashadigan maskan degan ma'noni anglatadi.
+  Company: Company
+  AboutUs: About us
+  ContactUs: Contact us
+  GetWork: Get work
+  Contact: Contact
+  Phone: Phone Number
+  WorkingHours: from 09:00 to 21:00
+
+Index:
+  BigTitle: Destination for good
+  YellowTitle: education
+  BriefHeaderInfo: Experienced teachers and more than 10 perfectly organized classes. Online & Offline learning choice.
+  Experts: Learn with experts
+  Certificates: Certificates
+  RealProjects: Real projects
+  WatchVideo: Watch video
+  WhereToWork: Where can I work?
+  Congratulations: Congratulations
+  Accepted: You have been accepted!
+  AllCourses: All courses
+
+CardsInfo:
+  OnAndOff: Online & Offline lessons
+  Experts: Expert teachers
+  SuccessfulStds: Successful students
+  ITProjects: IT Projects
+
+PopularCourses:
+  CourseList: List of Courses
+  SelectCourse: Choose the one you like from our guaranteed courses.
+
+CommentsComponent:
+  FirstComment: Alloh bergan ilmni yuzidagi tabassumi ila yoshlarga ulashib charchamaydigan, algoritm bo'yicha sevimli ustozim🙂. Kelgusida qilmoqchi bo'lgan har bir ishingiz xayrli bo'lsin
+  SecondComment: Menga talabchan ustozlar kerak edi, chunki meni kimdir doim o'qishga undab turmasa o'qimas edim. Bu o'quv markaziga kelib, men qidirgan ustozlarni topdim.
+  ExperiencedMentors: Verified Mentors
+  StudentsOpinions: Feedback from students
+  ThirdComment: .NET bootcamp menga dasturlash sohasida junior darajaga chiqishimda juda katta yordam berdi, chunki oz vaqt davomida ko'p narsalarni sifatli tarzda o'rgatishdi. Darslar 5/7 bo'lgani uchun, kunimni 70% qismi markazdagi co-workingda boshqa do'stlarim bilan o'tdi. Bu orqali ham dasturlashni, ham networkingni o'rgandim.
+  Rating: Based on 561 ratings
+
+ContactUs:
+  GetAcquainted: Let's talk
+  LeaveMessageInfo: To request a question or advice, contact us directly or fill out the form and we will get back to you promptly
+  SendMessage: Leave a message
+  JoinUs: Subscribe to us
+  Contact: Contact us
+  Address: Our address
+  Location: Buyuk Ipak Yo'li street 254-home, Tashkent
+
+Form:
+  FirstName: First Name *
+  Phone: Phone number *
+  Message: Message *
+  Register: Register
+  Format: Course format *
+
+CourseDetail:
+  Overview: Overview
+  Instructor: Instructor
+  AboutCourse: Course description
+  Welcome: Welcome to the <strong> {courseTitle} </strong> course
+  WhatToLearn: What you'll learn?
+  JoinUs: Do you want to join us? Unday bo'lsa <strong> {courseTitle} </strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!
+  Graduates: graduates
+  Courses: courses
+  Experience: years of experience
+  AnotherCourses: Other courses
+  CourseName: Course name
+  Price: Price
+  Duration: Course duration
+  OperatorsCall: Once you register, operators will contact you in advance.
+  WeekDuration: Classes in a week
+  ClassDuration: Class duration
+  Level: Level
+  Deadline: Deadline
+
+CommonWords:
+  Language: Language

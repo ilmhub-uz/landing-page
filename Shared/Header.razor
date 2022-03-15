@@ -1,8 +1,12 @@
+@using System.Globalization
+@inject IJSRuntime jsRuntime
 @inject NavigationManager NavigationManager
 @inject HttpClient Http
-<header class="navbar-light navbar-sticky header-static">
+@inject ILocalStorageService localStorage
+@inject ILanguageContainerService languageContainer
+<header class="navbar-light navbar-sticky header-static" id="navcollapseAll">
 	<!-- Logo Nav START -->
-	<nav class="navbar navbar-expand-xl">
+	<nav class="navbar navbar-expand-xl" style="height: 2cm;" >
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
 			<a class="navbar-brand mx-6" href="/">
@@ -25,7 +29,7 @@
 				<ul class="navbar-nav navbar-nav-scroll">
 					<!-- Nav item 1 Demos -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kurslar</a>
+						<a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@languageContainer.Keys["Header:Courses"]</a>
 						<ul class="dropdown-menu" aria-labelledby="demoMenu">
 							@foreach (var course in courses)
 							{
@@ -51,17 +55,29 @@
 				<ul class="navbar-nav navbar-nav-scroll me-auto">
 					<!-- Nav item 1 Demos -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loyihalar</a>
+						<a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@languageContainer.Keys["Header:Projects"]</a>
 						<ul class="dropdown-menu" aria-labelledby="demoMenu">
 							<li> <a class="dropdown-item" href="http://oj.ilmhub.uz">Ilmhub OJ</a></li>
 						</ul>
 					</li>
-						<a class="nav-link nav-item active" href="/ourteam">Bizning jamoa</a>
+						<a class="nav-link nav-item active" href="/ourteam">@languageContainer.Keys["Header:OurTeam"]</a>
 				</ul>
+
+				<ul class="navbar-nav navbar-nav-scroll">
+					<li class="nav-item">
+						<div class="dropdown me-3">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe me-2"></i>@languageContainer.Keys["CommonWords:Language"]</a>
+							<div class="dropdown-menu mt-2 min-w-auto shadow" aria-labelledby="dropdownLanguage">
+								<button class="dropdown-item me-4" @onclick='()=>Change("uz-UZ")'>O'zbekcha</button>
+								<button class="dropdown-item me-4" @onclick='()=>Change("en-US")'>English</button>
+							</div>
+						</div>
+					</li>
+        		</ul>
 				<!-- Nav Main menu END -->
 				<ul class="navbar-nav navbar-nav-scroll px-7">
 					<li class="nav-item text-center">
-						<a class="btn btn-primary" href="/contactus">Bog'lanish</a>
+						<a class="btn btn-primary" href="/contactus">@languageContainer.Keys["Header:Contact"]</a>
 					</li>
         		</ul>
 			</div>
@@ -70,12 +86,23 @@
 	</nav>
 	<!-- Logo Nav END -->
 </header>
+
 @code{
 	private List<Course> courses = new();
 	private List<Course> Kids = new();
 	protected override async Task OnInitializedAsync()
 	{
-		courses = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json")).Where(c => c.Tag!="Kids").ToList();
-		Kids = (await Http.GetFromJsonAsync<List<Course>>("data/courses.json")).Where(c => c.Tag == "Kids").ToList();		
+		var courseLanguage = (new CultureInfo((await localStorage.GetItemAsync<string>("culture"))??"uz-UZ")).TwoLetterISOLanguageName;
+		languageContainer.SetLanguage(new CultureInfo((await localStorage.GetItemAsync<string>("culture"))??"uz-UZ"));
+		languageContainer.InitLocalizedComponent(this);
+        await base.OnInitializedAsync();
+		courses = (await Http.GetFromJsonAsync<List<Course>>($"data/courses.{courseLanguage}.json")).Where(c => c.Tag!="Kids").ToList();
+		Kids = (await Http.GetFromJsonAsync<List<Course>>($"data/courses.{courseLanguage}.json")).Where(c => c.Tag == "Kids").ToList();		
+	}
+	private void Change(string language)
+	{
+		@* var language = e.Value.ToString(); *@
+		localStorage.SetItemAsync<string>("culture", new CultureInfo(language).Name);
+		languageContainer.SetLanguage(new CultureInfo(language));
 	}
 }

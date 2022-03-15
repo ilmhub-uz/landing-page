@@ -1,3 +1,4 @@
+@inject ILanguageContainerService languageContainer
 <section class="py-0 py-xl-5">
 	<div class="container">
 		<div class="row g-4">
@@ -10,7 +11,7 @@
 							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10"	data-purecounter-delay="200">20</h5>
 							<span class="mb-0 h5">+</span>
 						</div>
-						<p class="mb-0">Online & Offline darslar</p>
+						<p class="mb-0">@languageContainer.Keys["CardsInfo:OnAndOff"]</p>
 					</div>
 				</div>
 			</div>
@@ -23,7 +24,7 @@
 							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-delay="200">5</h5>
 							<span class="mb-0 h5">+</span>
 						</div>
-						<p class="mb-0">Ekspert ustozlar</p>
+						<p class="mb-0">@languageContainer.Keys["CardsInfo:Experts"]</p>
 					</div>
 				</div>
 			</div>
@@ -36,7 +37,7 @@
 							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="60"	data-purecounter-delay="200">100</h5>
 							<span class="mb-0 h5">+</span>
 						</div>
-						<p class="mb-0">Muvaffaqiyatli talablar</p>
+						<p class="mb-0">@languageContainer.Keys["CardsInfo:SuccessfulStds"]</p>
 					</div>
 				</div>
 			</div>
@@ -49,10 +50,17 @@
 							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="6" data-purecounter-delay="300">5</h5>
 							<span class="mb-0 h5">+</span>
 						</div>
-						<p class="mb-0">IT loyihalar</p>
+						<p class="mb-0">@languageContainer.Keys["CardsInfo:ITProjects"]</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+@code{
+	protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
+}

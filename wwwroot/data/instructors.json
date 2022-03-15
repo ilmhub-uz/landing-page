@@ -1,7 +1,7 @@
 [
     {
         "InstructorName": "Wahid Abduhakimov",
-        "University": "Sejong Universiteti",
+        "University": "Sejong",
         "Experience": 5,
         "MentorWorkPlace": "Gluwa inc.",
         "InstagramUrl": "wahid.abduhakimov",
@@ -16,7 +16,7 @@
     },
     {
         "InstructorName": "Davron Abdukhakimov",
-        "University": "RosNoU University in Moscow",
+        "University": "RosNoU",
         "Experience": 3,
         "MentorWorkPlace": "Ilmhub IT School",
         "InstagramUrl": "davron_abduhakimov/",
@@ -31,7 +31,7 @@
     },
     {
         "InstructorName": "Muhriddin Ergashev",
-        "University": "Sejong Universiteti",
+        "University": "Sejong",
         "Experience": 5,
         "MentorWorkPlace": "Korean company",
         "InstagramUrl": "#",
@@ -46,7 +46,7 @@
     },
     {
         "InstructorName": "Kilichbek Haydarov",
-        "University": "Sejong Universiteti",
+        "University": "Sejong",
         "Experience": 5,
         "MentorWorkPlace": "Machine Learning",
         "InstagramUrl": "#",
@@ -61,7 +61,7 @@
     },
     {
         "InstructorName": "Shahboz Khurramov",
-        "University": "Inha Universiteti",
+        "University": "Inha",
         "Experience": 1,
         "MentorWorkPlace": "Ilmhub",
         "InstagramUrl": "shahbozkhurramov",

@@ -1,5 +1,5 @@
 @inherits LayoutComponentBase
-
+@inject ILanguageContainerService languageContainer
 <div class="card mb-0 ">
     <div class="row g-0 align-items-center">
         <div class="col-md-5 mb-4">
@@ -36,19 +36,19 @@
                     <li class="list-inline-item">
                         <div class="d-flex align-items-center me-3 mb-2">
                             <span class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></span>
-                            <span class="h6 fw-light mb-0 ms-2"><strong>@instructor.StudentCount</strong>+ bitiruvchilar</span>
+                            <span class="h6 fw-light mb-0 ms-2"><strong>@instructor.StudentCount</strong>+ @languageContainer.Keys["CourseDetail:Graduates"]</span>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="d-flex align-items-center me-3 mb-2">
                             <span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-play"></i></span>
-                            <span class="h6 fw-light mb-0 ms-2"><strong>@(int.Parse(CoursesCount)+1)</strong>+ Kurslar </span>
+                            <span class="h6 fw-light mb-0 ms-2"><strong>@(int.Parse(CoursesCount)+1)</strong>+ @languageContainer.Keys["CourseDetail:Courses"] </span>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="d-flex align-items-center me-3 mb-2">
                             <span class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fas fa-star"></i></span>
-                            <span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience</strong>+ yillik tajriba </span>
+                            <span class="h6 fw-light mb-0 ms-2"><strong>@instructor.Experience</strong>+ @languageContainer.Keys["CourseDetail:Experience"] </span>
                         </div>
                     </li>
                 </ul>
@@ -68,4 +68,9 @@
     public Instructor instructor { get; set; }
     [Parameter]
     public string CoursesCount { get; set; }
+    protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
 }

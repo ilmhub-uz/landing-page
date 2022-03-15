@@ -1,0 +1,88 @@
+Header:
+  Courses: Kurslar
+  Projects: Loyihalar
+  OurTeam: Bizning jamoa
+  Contact: Bog'lanish
+
+OurTeam:
+  Title: Ilmhub jamoasi
+
+Footer:
+  IlmhubDefinition: Ilmhub - <strong>ilm</strong> va <strong>hub</strong> so'zlarini birlashmasi bo'lib, u ilm taqaladigan va ilmlilar uchrashadigan maskan degan ma'noni anglatadi.
+  Company: Kompaniya
+  AboutUs: Biz haqimizda
+  ContactUs: Biz bilan bog'laning
+  GetWork: Ishga kiring
+  Contact: Aloqa
+  Phone: Telefon
+  WorkingHours: 09:00 dan 21:00 gacha
+
+Index:
+  BigTitle: Sifatli ILM olish
+  YellowTitle: maskani
+  BriefHeaderInfo: Tajribali ustozlar va 10 dan ortiq mukammal tashkillashtirilgan darslar. Online & Offline o'rganish tanlovi.
+  Experts: Expertlar davrasi
+  Certificates: Sertifikatlar
+  RealProjects: Hayotiy proyektlar
+  WatchVideo: Videoni ko'ring
+  WhereToWork: Qayerda ishlasam ekan?
+  Congratulations: Tabriklaymiz
+  Accepted: Siz qabul qilindingiz!
+  AllCourses: Barcha kurslar
+
+CardsInfo:
+  OnAndOff: Online & Offline darslar
+  Experts: Ekspert ustozlar
+  SuccessfulStds: Muvaffaqiyatli talablar
+  ITProjects: IT loyihalar
+
+PopularCourses:
+  CourseList: Kurslar ro'yxati
+  SelectCourse: Sifati kafolatlangan kurslarimizdan o'zingizga yoqqanini tanlang.
+
+CommentsComponent:
+  FirstComment: Alloh bergan ilmni yuzidagi tabassumi ila yoshlarga ulashib charchamaydigan, algoritm bo'yicha sevimli ustozim🙂. Kelgusida qilmoqchi bo'lgan har bir ishingiz xayrli bo'lsin
+  SecondComment: Menga talabchan ustozlar kerak edi, chunki meni kimdir doim o'qishga undab turmasa o'qimas edim. Bu o'quv markaziga kelib, men qidirgan ustozlarni topdim.
+  ExperiencedMentors: Malakali Ustozlar
+  StudentsOpinions: O'quvchilarimiz fikrlari
+  ThirdComment: .NET bootcamp menga dasturlash sohasida junior darajaga chiqishimda juda katta yordam berdi, chunki oz vaqt davomida ko'p narsalarni sifatli tarzda o'rgatishdi. Darslar 5/7 bo'lgani uchun, kunimni 70% qismi markazdagi co-workingda boshqa do'stlarim bilan o'tdi. Bu orqali ham dasturlashni, ham networkingni o'rgandim.
+  Rating: 561 ta reytingga asoslangan holda
+
+ContactUs:
+  GetAcquainted: Keling tanishamiz
+  LeaveMessageInfo: O'zingizni qiziqtirgan savol va takliflaringiz bo'lsa, bizga aloqaga chiqing yoki ushbu formani to'ldirgan holda biz bilan darhol bog'laning
+  SendMessage: Xabar qoldirish
+  JoinUs: Bizga obuna bo'ling
+  Contact: Aloqaga chiqing
+  Address: Bizning Manzil
+  Location: Buyuk Ipak Yo'li ko'chasi 254-uy, Toshkent
+
+Form:
+  FirstName: Ismingiz *
+  Phone: Telefon raqamingiz *
+  Message: Xabar *
+  Register: Ro'yxatdan o'tish
+  Format: Kurs formati *
+
+CourseDetail:
+  Overview: Ma'lumot
+  Instructor: Instruktor
+  AboutCourse: Kurs haqida
+  Welcome: <strong> {courseTitle} </strong> kursiga xush kelibsiz!
+  WhatToLearn: Nimalarni o'rganasiz?
+  JoinUs: Bizga qo'shilishni istaysizmi? Unday bo'lsa <strong> {courseTitle} </strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!
+  Graduates: bitiruvchilar
+  Courses: kurslar
+  Experience: yillik tajriba
+  AnotherCourses: Boshqa kurslar
+  CourseName: Kurs nomi
+  Price: Narx
+  Duration: Kurs davomiyligi
+  OperatorsCall: Ro'yxatdan o'tganingizdan so'ng operatorlar siz bilan aloqaga chiqishadi.
+  WeekDuration: Haftadagi darslar soni
+  ClassDuration: Dars davomiyligi
+  Level: Daraja
+  Deadline: Deadline
+
+CommonWords:
+  Language: Til

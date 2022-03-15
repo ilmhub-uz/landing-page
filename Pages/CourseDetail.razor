@@ -1,7 +1,7 @@
 @page "/coursedetail/{CourseTitle}"
 @using System.Globalization
-@using landing.Components.CourseDetail
-
+@using landing.Components.CourseDetailComponent
+@inject ILanguageContainerService languageContainer
 <main>
 <CourseDetailHeader course="@course"/>
 
@@ -16,14 +16,14 @@
 						<ul class="nav nav-pills nav-tabs-line py-0" id="course-pills-tab" role="tablist">
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[0].ToString()" @onclick='()=>ChangeQueryTab("")' id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">Ma'lumot</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[0].ToString()" @onclick='()=>ChangeQueryTab("")' id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="false">@languageContainer.Keys["CourseDetail:Overview"]</button>
 							</li>
 							<!-- Tab item -->
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[1].ToString()" @onclick='()=>ChangeQueryTab("instructor")' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Instruktor</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[1].ToString()" @onclick='()=>ChangeQueryTab("instructor")' id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">@languageContainer.Keys["CourseDetail:Instructor"]</button>
 							</li>
 							<li class="nav-item me-2 me-sm-4" role="presentation">
-								<button class="nav-link mb-2 mb-md-0 @tabs[2].ToString()" @onclick='()=>ChangeQueryTab("register")' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">Ro'yxatdan o'tish</button>
+								<button class="nav-link mb-2 mb-md-0 @tabs[2].ToString()" @onclick='()=>ChangeQueryTab("register")' id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">@languageContainer.Keys["Form:Register"]</button>
 							</li>
 							<!-- Tab item -->
 							
@@ -51,17 +51,17 @@
 										<div class="card border bg-transparent rounded-3 ">
 											<!-- Card header START -->
 											<div class="card-header bg-transparent border-bottom ">
-												<h4 class="mb-2 mb-sm-0 text-center">Boshqa kurslar</h4	>
+												<h4 class="mb-2 mb-sm-0 text-center">@languageContainer.Keys["CourseDetail:AnotherCourses"]</h4	>
 											</div>
 											<div class="card-body">
 												<div class="table-responsive-lg border-0 rounded-3">
 													<table class="table table-dark-gray align-middle p-4 mb-0">
 														<thead>
 															<tr>
-																<th scope="col" class="border-0 rounded-start text-center">Kurs nomi</th>
-																<th scope="col" class="border-0 text-center">Narx</th>
-																<th scope="col" class="border-0 text-center">Davomiyligi</th>
-																<th scope="col" class="border-0 rounded-end text-center">Ro'yxatdan o'tish</th>
+																<th scope="col" class="border-0 rounded-start text-center">@languageContainer.Keys["CourseDetail:CourseName"]</th>
+																<th scope="col" class="border-0 text-center">@languageContainer.Keys["CourseDetail:Price"]</th>
+																<th scope="col" class="border-0 text-center">@languageContainer.Keys["CourseDetail:Duration"]</th>
+																<th scope="col" class="border-0 rounded-end text-center">@languageContainer.Keys["Form:Register"]</th>
 															</tr>
 														</thead>
 														@{
@@ -86,7 +86,7 @@
 																	</td>
 																	<td class="text-center"><strong>@courseItem.CostInUzs.ToString("C0", format)</strong></td>
 																	<td class="text-center">
-																		<span class="badge bg-primary bg-opacity-10 text-primary"><strong>@courseItem.CourseDuration</strong> oy</span>
+																		<span class="badge bg-primary bg-opacity-10 text-primary"><strong>@courseItem.CourseDuration</strong></span>
 																	</td>
 																	<td class="text-center">
 																		<a href="/coursedetail/@courseItem.Title?tab=register" onclick="ButtonClick('course-pills-tab-3')" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>

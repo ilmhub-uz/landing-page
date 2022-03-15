@@ -1,11 +1,13 @@
 @inherits LayoutComponentBase
-
-<h5 class="mb-3">Kurs haqida</h5>
-<p class="mb-3"><strong>@course.Title</strong> kursiga xush kelibsiz!</p>
+@inject ILanguageContainerService languageContainer
+<h5 class="mb-3">@languageContainer.Keys["CourseDetail:AboutCourse"]</h5>
+<p class="mb-3">@((MarkupString)(languageContainer.Keys["CourseDetail:Welcome", new{
+    courseTitle = course.Title??""
+}]))</p>
 <p class="mb-3">@course.Description</p>
 
 <!-- List content -->
-<h5 class="mt-4">Nimalarni o'rganasiz?</h5>
+<h5 class="mt-4">@languageContainer.Keys["CourseDetail:WhatToLearn"]</h5>
 <div class="row mb-3">
     <div class="col-md-6">
         <ul class="list-group list-group-borderless">
@@ -26,9 +28,16 @@
     </div>
 </div>
 
-<p class="mb-0">Bizga qo'shilishni istaysizmi? Unday bo'lsa <strong>@course.Title</strong> kursi uchun hoziroq ro'yxatdan o'ting va biz bilan yuqori marralarni zabt eting!</p>
+<p class="mb-0">@((MarkupString)(languageContainer.Keys["CourseDetail:JoinUs", new{
+    courseTitle = course.Title??""
+}]))</p>
 
 @code{
     [Parameter]
     public Course course { get; set; }
+    protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
 }

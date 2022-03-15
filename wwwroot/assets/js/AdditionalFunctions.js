@@ -1,6 +1,19 @@
 function ButtonClick(tab) {
     document.getElementById(tab).click();
 }
+// function changeSelectedLanguage(lan){
+//   var select = document.getElementById('selectLanguage');
+//   var option;
+//   console.log(lan);
+//   for (var i=0; i<select.options.length; i++) {
+//   option = select.options[i];
+//   if (option.value == lan) {
+//       option.setAttribute('selected', true);
+//       return; 
+//   } 
+//   }
+// }
+
 function ValidationIcon(inputName){
   if(document.getElementById(inputName).value == null || document.getElementById(inputName).value === ""){
     document.getElementById(inputName).classList.remove('is-valid');
@@ -89,3 +102,21 @@ function Send_Data(url, formtype){
         }
     });
 }
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  $(window).scroll(function () {
+    if($(window).scrollTop() > 200) {
+      $('#navcollapseAll').css('position', 'fixed');
+      $('#navcollapseAll').css('right', 0);
+      $('#navcollapseAll').css('left', 0);
+      $('#navcollapseAll').css('top', 0);
+    } else {
+    $('#navcollapseAll').css('position', '');
+    // $('#navcollapseAll').css('background-color', 'white');
+      $('#navcollapseAll').css('top', '-100%');
+    }
+  });
+}
+

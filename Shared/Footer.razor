@@ -1,3 +1,4 @@
+@inject ILanguageContainerService languageContainer
 <footer class="pt-5">
 	<div class="container">
 		<div class="row g-4">
@@ -7,7 +8,7 @@
 					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
 					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
 				</a>
-				<p class="my-3">Ilmhub - <strong>ilm</strong> va <strong>hub</strong> so'zlarini birlashmasi bo'lib, u ilm taqaladigan va ilmlilar uchrashadigan maskan degan ma'noni anglatadi.</p>
+				<p class="my-3">Ilmhub - @((MarkupString)languageContainer.Keys["Footer:IlmhubDefinition"])</p>
 				<!-- Social media icon -->
 				<ul class="list-inline mb-0 mt-3">
 					<li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-youtube" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCExbuFxW_p3VQq573KWS6UQ"><i class="fab fa-fw fa-youtube"></i></a> </li>
@@ -22,26 +23,24 @@
 				<div class="row g-4">
 					<!-- Link block -->
 					<div class="col-6 col-md-4">
-						<h5 class="mb-2 mb-md-4">Kompaniya</h5>
+						<h5 class="mb-2 mb-md-4">@languageContainer.Keys["Footer:Company"]</h5>
 						<ul class="nav flex-column">
-							<li class="nav-item"><a class="nav-link" href="/ourteam">Biz haqimizda</a></li>
-							<li class="nav-item"><a class="nav-link" href="/contactus">Biz bilan bog'laning</a></li>
-							<li class="nav-item"><a class="nav-link" href="/contactus">Ishga kiring</a></li>
+							<li class="nav-item"><a class="nav-link" href="/ourteam">@languageContainer.Keys["Footer:AboutUs"]</a></li>
+							<li class="nav-item"><a class="nav-link" href="/contactus">@languageContainer.Keys["Footer:ContactUs"]</a></li>
+							<li class="nav-item"><a class="nav-link" href="/contactus">@languageContainer.Keys["Footer:GetWork"]</a></li>
 						</ul>
 					</div>
 			
 				</div>
 			</div>
 			<div class="col-lg-3">
-				<h5 class="mb-2 mb-md-4">Aloqa</h5>
+				<h5>@languageContainer.Keys["Footer:Contact"]</h5>
 				<!-- Time -->
-				<p class="mb-1">
-					Telefon:<span class="h6 fw-light"><a href="tel:+998946715060">&nbsp+998 94 671 50 60</a></span>
-					<p class="h6 fw-light mx-6"><a href="tel:+998946175060">&nbsp+998 94 617 50 60</a></p>
-					<span class="d-block small mx-6">(09:00 dan 21:00 gacha)</span>
-				</p>
+				<p class="mb-1">@languageContainer.Keys["Footer:Phone"]:</p>
+				<p class="h6 fw-light"><a href="tel:+998946715060">&nbsp+998 94 671 50 60</a></p>
+				<p class="h6 fw-light"><a href="tel:+998946175060">&nbsp+998 94 617 50 60</a></p>
+				<span class="d-block small mb-2">(@languageContainer.Keys["Footer:WorkingHours"])</span>
 				<p class="mb-0">Email:<span class="h6 fw-light ms-2"><a href="mailto: ilmhub.uz@gmail.com">ilmhub.uz@gmail.com</a></span></p>
-
 			</div>
 		</div>
 
@@ -58,5 +57,9 @@
 </footer>
 
 @code{
-
+	protected override void OnInitialized()
+	{
+		languageContainer.InitLocalizedComponent(this);
+        base.OnInitialized();
+	}
 }
