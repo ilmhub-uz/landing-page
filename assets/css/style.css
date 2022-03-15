@@ -4849,7 +4849,11 @@ textarea.form-control-lg {
   background-position: center;
   background-size: 100%;
 }
-
+#navcollapseAll {
+  transition: all 1s;
+  scroll-behavior: smooth;
+  -webkit-transition: 1s;
+}
 .navbar-nav-scroll {
   max-height: var(--bs-scroll-height, 75vh);
   overflow-y: auto;
