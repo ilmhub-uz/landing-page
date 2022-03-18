@@ -19,7 +19,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\en-US.yml" />
     <EmbeddedResource Include="Resources\uz-UZ.yml" />
-    <!-- <EmbeddedResource Include="Resources\ru-RU.yml" /> -->
+    <EmbeddedResource Include="Resources\ru-RU.yml" />
   </ItemGroup>
 
 </Project>

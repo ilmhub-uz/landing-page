@@ -41,11 +41,11 @@ PopularCourses:
   SelectCourse: Choose the one you like from our guaranteed courses.
 
 CommentsComponent:
-  FirstComment: Alloh bergan ilmni yuzidagi tabassumi ila yoshlarga ulashib charchamaydigan, algoritm bo'yicha sevimli ustozim🙂. Kelgusida qilmoqchi bo'lgan har bir ishingiz xayrli bo'lsin
-  SecondComment: Menga talabchan ustozlar kerak edi, chunki meni kimdir doim o'qishga undab turmasa o'qimas edim. Bu o'quv markaziga kelib, men qidirgan ustozlarni topdim.
+  FirstComment: My favorite teacher of algorithms who never gets tired of sharing his knowledge given by Allah with young people with a smile on his face 🙂. Good luck with everything you want to do in future.
+  SecondComment: I needed demanding teachers because I wouldn't study unless someone encouraged me to acquire all the time. Coming to Ilmhub, I found the teachers I was looking for.
   ExperiencedMentors: Verified Mentors
   StudentsOpinions: Feedback from students
-  ThirdComment: .NET bootcamp menga dasturlash sohasida junior darajaga chiqishimda juda katta yordam berdi, chunki oz vaqt davomida ko'p narsalarni sifatli tarzda o'rgatishdi. Darslar 5/7 bo'lgani uchun, kunimni 70% qismi markazdagi co-workingda boshqa do'stlarim bilan o'tdi. Bu orqali ham dasturlashni, ham networkingni o'rgandim.
+  ThirdComment: .NET bootcamp has helped me tremendously in my career as a junior in programming because they have taught me so much in such a short amount of time. Since the classes were 5/7, 70% of my day was spent with my friends at co-working center. Through this, I learned both programming and networking.
   Rating: Based on 561 ratings
 
 ContactUs:
